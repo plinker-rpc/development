@@ -2,7 +2,6 @@
 
 #
 ## Plinker - Commit Processer
-## Author: @lcherone <lawrence@opensauce.systems>
 #
 
 # vars
@@ -147,26 +146,3 @@ main() {
 }
 
 main
-
-# Wrap logic to catch console output
-#{
-    # Move into project
-    #cd $projectDir
-
-    #nowShort="$(date +'%d/%m/%Y')"
-   # servername="$(hostname)"
-
-    # Git fetch, add, commit unstaged, pull, commit staged, push
-    #git fetch --all
-   # git add -A ./
-    #git commit -a -m "Production server local changes: $projectName - $nowShort"
-    #git pull origin master
-   # git commit -a -m "Production server origin changes: $projectName - $nowShort"
-   # git push origin master
-
-    # Fix file ownership to the container user
-    #sudo chown $container_user:www-data -R $projectDir/../html
-
-    ##############################################################
-
-#} &> /dev/null
