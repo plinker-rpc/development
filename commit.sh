@@ -61,80 +61,86 @@ increment_semver() {
 
 #
 commit() {
-
-    echo "- Fetching current changes"
-    git fetch --all
-
-    # get the current semantic tag
-    latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
-    echo "Current Semantic Version Tag: $latestTag"
-
-    # stage changes
-    git add -A ./
-
-    # stage changes
-    git commit -a -m "[since: v$latestTag]  $date - $message"
-
-    # pull latest
-    git pull origin master
-
-    # commit any remote changes
-    git commit -a -m  "[since: v$latestTag]  $date - $message"
-
-    # update master
-    git push origin master
+    if git diff-index --quiet HEAD --; then
+        echo "- No changes, skipping."
+    else
+        echo "- Fetching current changes"
+        git fetch --all
+    
+        # get the current semantic tag
+        latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo "Current Semantic Version Tag: $latestTag"
+    
+        # stage changes
+        git add -A ./
+    
+        # stage changes
+        git commit -a -m "[since: v$latestTag]  $date - $message"
+    
+        # pull latest
+        git pull origin master
+    
+        # commit any remote changes
+        git commit -a -m  "[since: v$latestTag]  $date - $message"
+    
+        # update master
+        git push origin master
+    fi
 }
 
 #
 deploy_tag() {
-
-    echo "- Fetching tags"
-    git fetch --tags
-
-    # get the current semantic tag
-    latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
-    echo "Current Semantic Version Tag: $latestTag"
-
-    # look for previous semvar choice tmp file
-    if [ ! -f /tmp/semvar_choice ]; then
-        while true; do
-            read -p "Which type of changes has been done: [p]atch, [m]inor, [M]ajor? " semver
-            case $semver in
-                [p]* ) break;;
-                [m]* ) break;;
-                [M]* ) break;;
-                * ) echo "Please answer p, m or M";;
-            esac
-        done
-        echo $semver > /tmp/semvar_choice
+    if git diff-index --quiet HEAD --; then
+        echo "- No changes, skipping."
     else
-        # read choice into semvar variable
-        read -r semver < /tmp/semvar_choice;
+        echo "- Fetching tags"
+        git fetch --tags
+    
+        # get the current semantic tag
+        latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo "Current Semantic Version Tag: $latestTag"
+    
+        # look for previous semvar choice tmp file
+        if [ ! -f /tmp/semvar_choice ]; then
+            while true; do
+                read -p "Which type of changes has been done: [p]atch, [m]inor, [M]ajor? " semver
+                case $semver in
+                    [p]* ) break;;
+                    [m]* ) break;;
+                    [M]* ) break;;
+                    * ) echo "Please answer p, m or M";;
+                esac
+            done
+            echo $semver > /tmp/semvar_choice
+        else
+            # read choice into semvar variable
+            read -r semver < /tmp/semvar_choice;
+        fi
+    
+        # new release semvar
+        releaseSemvar=$(increment_semver -"$semver" $latestTag)
+    
+        # stage changes
+        git add -A ./
+    
+        # stage changes
+        git commit -a -m "[since: v$releaseSemvar]  $date - $message"
+    
+        # pull latest
+        git pull origin master
+    
+        # commit any remote changes
+        git commit -a -m  "[since: v$releaseSemvar]  $date - $message"
+    
+        # update master
+        git push origin master
+    
+        # commit tag
+        git tag -a v$releaseSemvar -m "[$semver] v$releaseSemvar - $date - $message"
+    
+        # push tag
+        git push origin v$releaseSemvar
     fi
-
-    # new release semvar
-    releaseSemvar=$(increment_semver -"$semver" $latestTag)
-
-    # stage changes
-    git add -A ./
-
-    # stage changes
-    git commit -a -m "[since: v$releaseSemvar]  $date - $message"
-
-    # pull latest
-    git pull origin master
-
-    # commit any remote changes
-    git commit -a -m  "[since: v$releaseSemvar]  $date - $message"
-
-    # update master
-    git push origin master
-
-    # commit tag
-    git tag -a v$releaseSemvar -m "[$semver] v$releaseSemvar - $date - $message"
-
-    # push tag
-    git push origin v$releaseSemvar
 }
 
 #
