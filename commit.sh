@@ -13,7 +13,15 @@ date=$(date +"%d-%b-%Y")
 declare -A components
 components['plinker-core']='plinker/core'
 components['plinker-base91']='plinker/base91'
+components['plinker-asterisk']='plinker/asterisk'
+components['plinker-cron']='plinker/cron'
+components['plinker-lxc']='plinker/lxc'
+components['plinker-redbean']='plinker/redbean'
+components['plinker-system']='plinker/system'
+components['plinker-tasks']='plinker/tasks'
+components['plinker-test']='plinker/test'
 
+#
 increment_semver() {
     # passed in as: -p, -m, -M | release = p, m, M
     release=${1#?}
@@ -51,6 +59,7 @@ increment_semver() {
     fi
 }
 
+#
 commit() {
 
     echo "- Fetching tags"
@@ -102,6 +111,7 @@ commit() {
     git push origin v$releaseSemvar
 }
 
+#
 main() {
     echo "---------------------------------------------------"
     echo "- Project -: $projectName"

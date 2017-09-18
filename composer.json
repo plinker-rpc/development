@@ -1,10 +1,19 @@
 {   
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true
     },
     "require": {
-        "plinker/core": "master"
+        "plinker/core": "master",
+        "plinker/base91": "master",
+        "plinker/asterisk": "master",
+        "plinker/cron": "master",
+        "plinker/lxc": "master",
+        "plinker/redbean": "master",
+        "plinker/system": "master",
+        "plinker/tasks": "master",
+        "plinker/test": "master"
     }
 }
