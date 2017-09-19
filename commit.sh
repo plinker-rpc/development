@@ -61,6 +61,9 @@ increment_semver() {
 
 #
 commit() {
+    # stage any changes
+    git add -A ./
+    
     if git diff-index --quiet HEAD --; then
         echo "- No changes, skipping."
     else
@@ -90,7 +93,10 @@ commit() {
 
 #
 deploy_tag() {
-    if git diff-index --quiet HEAD --; then
+    # stage any changes
+    git add -A ./
+    
+    if git diff-index --quiet HEAD -- ; then
         echo "- No changes, skipping."
     else
         echo "- Fetching tags"
@@ -134,7 +140,7 @@ deploy_tag() {
     
         # update master
         git push origin master
-    
+
         # commit tag
         git tag -a v$releaseSemvar -m "[$semver] v$releaseSemvar - $date - $message"
     
@@ -153,6 +159,7 @@ main() {
     echo "---------------------------------------------------"
 
     # ask what to do, push to master or deploy to master and tag
+    force=false
     while true; do
         read -p "Do you wish to [c]ommit, [d]eploy or [e]xit? " dep
         case $dep in
@@ -185,7 +192,7 @@ main() {
                 fi
 
                 # deploy tag
-                if [ "$dep" == "d" ]; then
+                if [ "$dep" == "d" ] || [ "$dep" == "df" ]; then
                     deploy_tag $message
                 fi
             else
