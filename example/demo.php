@@ -1,17 +1,6 @@
 <?php
 require '../vendor/autoload.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
-print_r(scandir('/tmp'));
-
-touch('/tmp/test.txt');
-
-echo shell_exec('sudo rm -r /tmp/*.txt');
-
-
-die;
 /**
  * Plinker Config
  */
