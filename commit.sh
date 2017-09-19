@@ -78,13 +78,13 @@ commit() {
         git add -A ./
 
         # stage changes
-        git commit -a -m "[since: v$latestTag]  $date - $message"
+        git commit -a -m "[since: $latestTag]  $date - $message"
 
         # pull latest
         git pull origin master
 
         # commit any remote changes
-        git commit -a -m  "[since: v$latestTag]  $date - $message"
+        git commit -a -m  "[since: $latestTag]  $date - $message"
 
         # update master
         git push origin master
