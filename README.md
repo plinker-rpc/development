@@ -16,5 +16,7 @@ it contains a bash script which will commit and do semantic versioning for each 
 
 **Committing changes:**
 
+ - `./php-cs-fixer fix ./vendor/plinker --verbose --rules=@PSR2 --dry-run --diff`
  - `bash ./commit.sh "A really informative commit message, and not just ."`
+
 

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             hash('sha256', gmdate('h').$plinker['public_key']),
             hash('sha256', gmdate('h').$plinker['private_key'])
         );
-        
+
         exit($server->execute());
     }
 }

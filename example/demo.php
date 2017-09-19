@@ -1,6 +1,17 @@
 <?php
 require '../vendor/autoload.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+print_r(scandir('/tmp'));
+
+touch('/tmp/test.txt');
+
+echo shell_exec('sudo rm -r /tmp/*.txt');
+
+
+die;
 /**
  * Plinker Config
  */
@@ -14,20 +25,20 @@ $plinker = [
 $demo = new \Plinker\Core\Client(
     // where is the plinker server
     $plinker['endpoint'],
-    
+
     // component namespace to interface to
-	'Test\Demo',
-	
-	// keys
-	hash('sha256', gmdate('h').$plinker['public_key']),
+    'Test\Demo',
+
+    // keys
+    hash('sha256', gmdate('h').$plinker['public_key']),
     hash('sha256', gmdate('h').$plinker['private_key']),
-    
-    // construct values which you pass to the component, which the component 
+
+    // construct values which you pass to the component, which the component
     //  will use, for RedbeanPHP component you would send the database connection
     //  dont worry its AES encrypted. see: encryption-proof.txt
-	[
-	    'foo' => 'bar'
-	]
+    [
+        'foo' => 'bar'
+    ]
 );
 
 // call this()
