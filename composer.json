@@ -6,9 +6,9 @@
         "sort-packages": true
     },
     "require": {
-        "plinker/core": "master",
-        "plinker/base91": "master",
         "plinker/asterisk": "master",
+        "plinker/base91": "master",
+        "plinker/core": "master",
         "plinker/cron": "master",
         "plinker/lxc": "master",
         "plinker/redbean": "master",

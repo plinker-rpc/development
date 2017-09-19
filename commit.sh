@@ -63,29 +63,29 @@ increment_semver() {
 commit() {
     # stage any changes
     git add -A ./
-    
+
     if git diff-index --quiet HEAD --; then
         echo "- No changes, skipping."
     else
         echo "- Fetching current changes"
         git fetch --all
-    
+
         # get the current semantic tag
         latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
         echo "Current Semantic Version Tag: $latestTag"
-    
+
         # stage changes
         git add -A ./
-    
+
         # stage changes
         git commit -a -m "[since: v$latestTag]  $date - $message"
-    
+
         # pull latest
         git pull origin master
-    
+
         # commit any remote changes
         git commit -a -m  "[since: v$latestTag]  $date - $message"
-    
+
         # update master
         git push origin master
     fi
@@ -95,17 +95,17 @@ commit() {
 deploy_tag() {
     # stage any changes
     git add -A ./
-    
+
     if git diff-index --quiet HEAD -- ; then
         echo "- No changes, skipping."
     else
         echo "- Fetching tags"
         git fetch --tags
-    
+
         # get the current semantic tag
         latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
         echo "Current Semantic Version Tag: $latestTag"
-    
+
         # look for previous semvar choice tmp file
         if [ ! -f /tmp/semvar_choice ]; then
             while true; do
@@ -122,28 +122,28 @@ deploy_tag() {
             # read choice into semvar variable
             read -r semver < /tmp/semvar_choice;
         fi
-    
+
         # new release semvar
         releaseSemvar=$(increment_semver -"$semver" $latestTag)
-    
+
         # stage changes
         git add -A ./
-    
+
         # stage changes
         git commit -a -m "[since: v$releaseSemvar]  $date - $message"
-    
+
         # pull latest
         git pull origin master
-    
+
         # commit any remote changes
         git commit -a -m  "[since: v$releaseSemvar]  $date - $message"
-    
+
         # update master
         git push origin master
 
         # commit tag
         git tag -a v$releaseSemvar -m "[$semver] v$releaseSemvar - $date - $message"
-    
+
         # push tag
         git push origin v$releaseSemvar
     fi
@@ -159,7 +159,6 @@ main() {
     echo "---------------------------------------------------"
 
     # ask what to do, push to master or deploy to master and tag
-    force=false
     while true; do
         read -p "Do you wish to [c]ommit, [d]eploy or [e]xit? " dep
         case $dep in
@@ -192,7 +191,7 @@ main() {
                 fi
 
                 # deploy tag
-                if [ "$dep" == "d" ] || [ "$dep" == "df" ]; then
+                if [ "$dep" == "d" ]; then
                     deploy_tag $message
                 fi
             else
