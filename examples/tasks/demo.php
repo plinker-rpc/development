@@ -5,11 +5,13 @@ require '../../vendor/autoload.php';
  * Plinker Config
  */
 $config = [
+    // plinker connection
 	'plinker' => [
 		'endpoint' => 'http://127.0.0.1/examples/tasks/server.php',
 		'public_key'  => 'makeSomethingUp',
 		'private_key' => 'againMakeSomethingUp'
 	],
+	
 	// database connection
 	'database' => [
 		'dsn'      => 'sqlite:./database.db',
@@ -29,7 +31,7 @@ $config = [
 	'pid_path'   => './pids'
 ];
 
-// init plinker endpoint client
+// init plinker client
 $tasks = new \Plinker\Core\Client(
 	// where is the plinker server
 	$config['plinker']['endpoint'],
@@ -47,7 +49,11 @@ $tasks = new \Plinker\Core\Client(
 	$config
 );
 
-// create the task through plinker
+/**
+ * Example
+ */
+
+// create the task
 try {
 	// create task
 	$tasks->create(
@@ -59,7 +65,7 @@ try {
 		'php',
 		// description
 		'...',
-		// params
+		// default params
 		[]
 	);
 } catch (\Exception $e) {
@@ -71,10 +77,10 @@ try {
 }
 
 //run task now - executed as apache user
-print_r($tasks->runNow('Hello World'));
+//print_r($tasks->runNow('Hello World'));
 
 // place task in queue to run
-print_r($tasks->run('Hello World', [1], true));
+print_r($tasks->run('Hello World', [1], 5));
 
 // get task status
 print_r($tasks->status('Hello World'));
@@ -83,4 +89,4 @@ print_r($tasks->status('Hello World'));
 print_r($tasks->runCount('Hello World'));
 
 // clear all tasks
-$tasks->clear();
+//$tasks->clear();
