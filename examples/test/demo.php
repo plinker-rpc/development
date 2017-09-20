@@ -1,11 +1,11 @@
 <?php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 /**
  * Plinker Config
  */
 $plinker = [
-    'endpoint' => 'http://127.0.0.1/example/server.php',
+    'endpoint' => 'http://127.0.0.1/examples/test/server.php',
     'public_key'  => 'makeSomethingUp',
     'private_key' => 'againMakeSomethingUp'
 ];
