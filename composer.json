@@ -14,6 +14,7 @@
         "plinker/redbean": "master",
         "plinker/system": "master",
         "plinker/tasks": "master",
-        "plinker/test": "master"
+        "plinker/test": "master",
+        "plinker/nginx": "master"
     }
 }

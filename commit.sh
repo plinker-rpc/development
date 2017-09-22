@@ -20,6 +20,7 @@ components['plinker-redbean']='plinker/redbean'
 components['plinker-system']='plinker/system'
 components['plinker-tasks']='plinker/tasks'
 components['plinker-test']='plinker/test'
+components['plinker-nginx']='plinker/nginx'
 
 #
 increment_semver() {
