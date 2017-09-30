@@ -1,8 +1,0 @@
-Array
-(
-    [data] => {f)wNOY.X{X^%5|>psUCV?^qid8R8?uO[@nn.wtC^>*BybfB!!0}~>yN)obxz#,v_#k;LNCZreaQE!Wn>m;}T]@cjag"d7)2h(sO%kP;M~aFE{/PFbGEpAIgB3Bou@<i|g0dqre|ojVCsz^8uhD3XV6.5s6vUBZ,P$R>M_ae^Y?*6oH^][W"Bioud;EU[(H]R^0GG
-    [public_key] => e3a726c471233f211f80860f9555c127b591dbc9d2d0e6e22d41bc60e68f7b47
-    [time] => 1506764971.1922
-    [encrypt] => 1
-    [token] => 8cad8993d702702972e2ac77794847ff38cede6031bc54f45c44c1418a95335d
-)
