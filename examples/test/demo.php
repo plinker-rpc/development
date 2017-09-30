@@ -30,26 +30,32 @@ $demo = new \Plinker\Core\Client(
     ]
 );
 
-// call this()
-echo '<pre>'.print_r($demo->this(), true).'</pre>';
+try {
+    
+    // call this()
+    echo '<pre>'.print_r($demo->this(), true).'</pre>';
+    
+    // call config()
+    echo '<pre>'.print_r($demo->config(), true).'</pre>';
+    
+    // call this() and then locally execute an_array()
+    echo '<pre>'.print_r($demo->this()->an_array(), true).'</pre>';
+    
+    // call an_array()
+    echo '<pre>'.print_r($demo->an_array(), true).'</pre>';
+    
+    // call an_array()
+    echo '<pre>'.print_r($demo->closure()('How you doing?'), true).'</pre>';
+    
+    // call my_time()
+    echo '<pre>'.print_r($demo->my_time(), true).'</pre>';
+    
+    // call my_ip()
+    echo '<pre>'.print_r($demo->my_ip(), true).'</pre>';
+    
+    // call your_ip()
+    echo '<pre>'.print_r($demo->your_ip(), true).'</pre>';
 
-// call config()
-echo '<pre>'.print_r($demo->config(), true).'</pre>';
-
-// call this() and then locally execute an_array()
-echo '<pre>'.print_r($demo->this()->an_array(), true).'</pre>';
-
-// call an_array()
-echo '<pre>'.print_r($demo->an_array(), true).'</pre>';
-
-// call an_array()
-echo '<pre>'.print_r($demo->closure()('How you doing?'), true).'</pre>';
-
-// call my_time()
-echo '<pre>'.print_r($demo->my_time(), true).'</pre>';
-
-// call my_ip()
-echo '<pre>'.print_r($demo->my_ip(), true).'</pre>';
-
-// call your_ip()
-echo '<pre>'.print_r($demo->your_ip(), true).'</pre>';
+} catch (\Exception $e) {
+    exit(get_class($e).': '.$e->getMessage());
+}
