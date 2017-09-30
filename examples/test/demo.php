@@ -19,8 +19,8 @@ $demo = new \Plinker\Core\Client(
     'Test\Demo',
 
     // keys
-    hash('sha256', gmdate('h').$plinker['public_key']),
-    hash('sha256', gmdate('h').$plinker['private_key']),
+    $plinker['public_key'],
+    $plinker['private_key'],
 
     // construct values which you pass to the component, which the component
     //  will use, for RedbeanPHP component you would send the database connection
