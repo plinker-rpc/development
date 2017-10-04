@@ -9,7 +9,7 @@ try {
     $config = [
         // plinker connection | using tasks as to write in the correct .sqlite file
         'plinker' => [
-            'endpoint' => 'http://plinker.free.lxd.systems:88',
+            'endpoint' => 'http://127.0.0.1/examples/test/server.php',
             'public_key'  => 'makeSomethingUp',
             'private_key' => 'againMakeSomethingUp'
         ],
