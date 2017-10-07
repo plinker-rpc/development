@@ -9,7 +9,7 @@ try {
     $config = [
         // plinker connection | using tasks as to write in the correct .sqlite file
         'plinker' => [
-            'endpoint' => 'http://127.0.0.1/examples/test/server.php',
+            'endpoint' => 'http://127.0.0.1:88',
             'public_key'  => 'makeSomethingUp',
             'private_key' => 'againMakeSomethingUp'
         ],
@@ -57,30 +57,26 @@ try {
     ###################################################
     
     //echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
-    
+    /*
     // remove all
     foreach ($nginx->fetch('route') as $route) {
         $nginx->rebuild('name = ?', [$route['name']]);
         //sleep(1);
     }
-    
+
     die;
-    
-    
+    */
     
     // remove all
     foreach ($nginx->fetch('route') as $route) {
         $nginx->remove('name = ?', [$route['name']]);
     }
-    
     sleep(2);
+    /*
     
     // add lots of routs
     # load test
     foreach (range('A', 'Z') as $i => $char) {
-        /**
-         * Add web forward
-         */
         // set base form structure
         $form = [
             // form model
@@ -115,6 +111,8 @@ try {
     
     //echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
     
+    */
+    
     /**
      * Add web forward
      */
@@ -124,11 +122,10 @@ try {
         'values' => [
             'label' => 'Example',
             'domains' => [
-                'example.com',
-                'www.example.com',
+                'test.com'
             ],
             'upstreams' => [
-                ['ip' => '127.0.0.1', 'port' => '80']
+                ['ip' => '10.158.250.5', 'port' => '80']
             ],
             'letsencrypt' => 0,
             'enabled' => 1
@@ -206,7 +203,6 @@ try {
     
     //$nginx->reset();
     
-    
     # load test
     foreach (range('A', 'Z') as $i => $char) {
         /**
@@ -231,9 +227,7 @@ try {
         
         echo '<h2>Add: '.$char.'</h2>';
         echo '<pre>'.print_r($nginx->add($form['values']), true).'</pre>';
-    
     }
-    
     
     #delete all routes
     die;
