@@ -183,6 +183,9 @@ main() {
         if [ -d "$PWD/vendor/${components[$key]}" ]; then
 
             if [ -d "$PWD/vendor/${components[$key]}/.git" ]; then
+            
+                # generate docs
+                $PWD/vendor/bin/phpdoc-md generate $PWD/vendor/${components[$key]} > $PWD/vendor/${components[$key]}/api.md
 
                 echo "- Entering: $PWD/vendor/${components[$key]}"
                 cd "$PWD/vendor/${components[$key]}"
