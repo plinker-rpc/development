@@ -186,6 +186,9 @@ main() {
             
                 # generate docs
                 $PWD/vendor/bin/phpdoc-md generate $PWD/vendor/${components[$key]} > $PWD/vendor/${components[$key]}/api.md
+                
+                # generate docs - main
+                $PWD/vendor/bin/phpdoc-md generate $PWD/vendor/plinker > $PWD/api.md
 
                 echo "- Entering: $PWD/vendor/${components[$key]}"
                 cd "$PWD/vendor/${components[$key]}"
