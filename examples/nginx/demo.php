@@ -1,6 +1,12 @@
 <?php
 require '../../vendor/autoload.php';
 
+function debug($title, $out) {
+    echo '<h3 style="margin-bottom:-10px">'.$title.'</h3>';
+    echo '<pre style="tab-width: 4;font-size:11px;white-space: pre-wrap;">'.print_r($out, true).'</pre>';
+    echo '<hr>';
+}
+
 try {
     
     /**
@@ -44,96 +50,20 @@ try {
         $config
     );
     
-    //print_r($nginx->count('route'));
-    //print_r($nginx->status());
+    #
+    debug('Setup', $nginx->setup([
+        'build_sleep' => 5,   
+        'reconcile_sleep' => 5,   
+    ]));
     
-    //die;
+    # a test route label
+    $test_route_label = 'Example';
     
-    // setup and add nginx tasks
-    echo '<h2>Setup</h2>';
-    echo '<pre>'.print_r(
-        
-        $nginx->setup([
-            'build_sleep' => 5,   
-            'reconcile_sleep' => 5,   
-        ])
-        
-    , true).'</pre>';
-    
-    
-    ###################################################
-    
-    //echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
-    /*
-    // remove all
-    foreach ($nginx->fetch('route') as $route) {
-        $nginx->rebuild('name = ?', [$route['name']]);
-        //sleep(1);
-    }
-
-    die;
-    */
-    
-    /*
-    print_r($nginx->fetch('domain'));
-    
-    die;
-
-    // remove all
-    foreach ($nginx->fetch('route') as $route) {
-        $nginx->remove('name = ?', [$route['name']]);
-    }
-    sleep(2);
-    */
-    /*
-    
-    // add lots of routs
-    # load test
-    foreach (range('A', 'Z') as $i => $char) {
-        // set base form structure
-        $form = [
-            // form model
-            'values' => [
-                'label' => $char,
-                'domains' => [
-                    $char.'.example.com',
-                    $char.'.www.example.com',
-                ],
-                'upstreams' => [
-                    ['ip' => '127.0.0.'.$i, 'port' => '80']
-                ],
-                'letsencrypt' => 0,
-                'enabled' => 1
-            ]
-        ];
-        
-        echo '<h2>Add: '.$char.'</h2>';
-        echo '<pre>'.print_r($nginx->add($form['values']), true).'</pre>';
-    }
-    
-    die;
-    
-    // remove all
-    foreach ($nginx->fetch('route') as $route) {
-        $nginx->remove('name = ?', [$route['name']]);
-    }
-    
-    //$nginx->reset(true);
-    
-    die;
-    
-    //echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
-    
-    */
-    
-    /**
-     * Add web forward
-     */
-    // set base form structure
+    #
     $form = [
         // form model
         'values' => [
-            'label' => 'Example',
+            'label' => $test_route_label,
             'ownDomain' => [
                 'example.com',
                 'www.example.com'
@@ -145,85 +75,46 @@ try {
             'enabled' => 1
         ]
     ];
+    debug('Add Route', $nginx->add($form['values']));
     
-    echo '<h2>Add</h2>';
-    echo '<pre>'.print_r($nginx->add($form['values']), true).'</pre>';
-    
-    echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
-    echo '<pre>'.print_r($nginx->fetch('domain'), true).'</pre>';
-    
-    die;
-    
-    /**
-     * Allow task to be completed
-     */
-    //sleep(3);
-    
-    /**
-     * Update Web forward
-     */
-    // set base form structure
+    #
     $form = [
         // form model
         'values' => [
-            'label' => 'Example Changed',
-            'domains' => [
+            'label' => $test_route_label,
+            'ownDomain' => [
                 'example.com',
-                'www.example.com',
-                'new.example.com',
+                'www.example.com'
             ],
-            'upstreams' => [
-                ['ip' => '127.0.0.2', 'port' => '8080']
+            'ownUpstream' => [
+                ['ip' => '10.0.0.2', 'port' => '80']
             ],
             'letsencrypt' => 0,
             'enabled' => 1
         ]
     ];
+    debug('Update Route', $nginx->update('label = ?', [$test_route_label], $form['values']));
     
-    echo '<h2>Update</h2>';
-    echo '<pre>'.print_r($nginx->update('id = ?', [2], $form['values']), true).'</pre>';
+    #
+    debug('All Routes', $nginx->fetch('route'));
     
-    /*
-    $form = [
-        // form model
-        'values' => [
-            'name' => 'Example-Should-Be-Unique',
-            'label' => 'Example',
-            'domains' => [
-                'example.com',
-                'www.example.com',
-            ],
-            'upstreams' => [
-                ['ip' => '127.0.0.1', 'port' => '80']
-            ],
-            'letsencrypt' => 0,
-            'enabled' => 1
-        ]
-    ];
-    echo '<pre>'.print_r($nginx->update($form['values']), true).'</pre>';
-    */
+    #
+    debug('Status', $nginx->status());
     
-    //echo '<pre>'.print_r($nginx->add([]), true).'</pre>';
+    #
+    debug('Count Routes', $nginx->count('route'));
     
-    /**
-     * Allow task to be completed
-     */
-    //sleep(6);
+    #
+    debug('Count Domain', $nginx->count('domain'));
     
-    echo '<h2>Fetch</h2>';
-    echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
+    #
+    debug('Rebuild Route', $nginx->rebuild('label = ?', [$test_route_label]));
     
-    echo '<h2>Remove</h2>';
-    echo '<pre>'.print_r($nginx->remove('id = ?', [2]), true).'</pre>';
-    
-    //$nginx->reset();
-    
-    # load test
+    #
+    debug('Remove Route', $nginx->remove('label = ?', [$test_route_label]));
+
+    # add lots of routes
     foreach (range('A', 'Z') as $i => $char) {
-        /**
-         * Add web forward
-         */
-        // set base form structure
         $form = [
             // form model
             'values' => [
@@ -239,19 +130,16 @@ try {
                 'enabled' => 1
             ]
         ];
-        
-        echo '<h2>Add: '.$char.'</h2>';
-        echo '<pre>'.print_r($nginx->add($form['values']), true).'</pre>';
+        debug('Add: '.$char, $nginx->add($form['values']));
     }
-    
-    #delete all routes
-    die;
+
+    # delete all routes
     foreach ($nginx->fetch('route') as $route) {
-        $nginx->remove('name = ?', [$route['name']]);
+         debug('Remove Route: '.$route['name'], $nginx->remove('name = ?', [$route['name']]));
     }
     
-    echo '<h2>Fetch</h2>';
-    echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
+    #
+    //debug('Reset NGINX Package', $nginx->reset());
     
 } catch (\Exception $e) {
     exit(get_class($e).': '.$e->getMessage());
