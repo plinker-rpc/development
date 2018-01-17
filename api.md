@@ -175,6 +175,7 @@
 | public | <strong>disks(</strong><em>bool</em> <strong>$parse=true</strong>)</strong> : <em>string</em><br /><em>Get disk file system table</em> |
 | public | <strong>distro()</strong> : <em>string</em><br /><em>Get system distro</em> |
 | public | <strong>drop_cache()</strong> : <em>void</em><br /><em>Drop memory caches</em> |
+| public | <strong>enumerate(</strong><em>array</em> <strong>$methods=array()</strong>)</strong> : <em>void</em><br /><em>Enumerate multiple methods, saves on HTTP calls</em> |
 | public | <strong>hostname()</strong> : <em>string</em><br /><em>Get system hostname</em> |
 | public | <strong>load()</strong> : <em>string</em><br /><em>Get system load</em> |
 | public | <strong>logins(</strong><em>bool</em> <strong>$parse=true</strong>)</strong> : <em>string</em><br /><em>Get system last logins</em> |

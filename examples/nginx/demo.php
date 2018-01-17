@@ -9,7 +9,7 @@ try {
     $config = [
         // plinker connection | using tasks as to write in the correct .sqlite file
         'plinker' => [
-            'endpoint' => 'http://127.0.0.1:88',
+            'endpoint' => 'http://plinker.free.lxd.systems:88',
             'public_key'  => 'makeSomethingUp',
             'private_key' => 'againMakeSomethingUp'
         ],
@@ -22,7 +22,7 @@ try {
             'username' => '',
             'password' => '',
             'freeze'   => false,
-            'debug'    => false,
+            'debug'    => false
         ]
     ];
     
@@ -44,15 +44,22 @@ try {
         $config
     );
     
+    //print_r($nginx->count('route'));
+    //print_r($nginx->status());
+    
+    //die;
+    
     // setup and add nginx tasks
     echo '<h2>Setup</h2>';
     echo '<pre>'.print_r(
         
         $nginx->setup([
-            'build_sleep' => 1    
+            'build_sleep' => 5,   
+            'reconcile_sleep' => 5,   
         ])
         
     , true).'</pre>';
+    
     
     ###################################################
     
@@ -67,11 +74,17 @@ try {
     die;
     */
     
+    /*
+    print_r($nginx->fetch('domain'));
+    
+    die;
+
     // remove all
     foreach ($nginx->fetch('route') as $route) {
         $nginx->remove('name = ?', [$route['name']]);
     }
     sleep(2);
+    */
     /*
     
     // add lots of routs
@@ -121,10 +134,11 @@ try {
         // form model
         'values' => [
             'label' => 'Example',
-            'domains' => [
-                'test.com'
+            'ownDomain' => [
+                'example.com',
+                'www.example.com'
             ],
-            'upstreams' => [
+            'ownUpstream' => [
                 ['ip' => '10.158.250.5', 'port' => '80']
             ],
             'letsencrypt' => 0,
@@ -136,6 +150,7 @@ try {
     echo '<pre>'.print_r($nginx->add($form['values']), true).'</pre>';
     
     echo '<pre>'.print_r($nginx->fetch('route'), true).'</pre>';
+    echo '<pre>'.print_r($nginx->fetch('domain'), true).'</pre>';
     
     die;
     

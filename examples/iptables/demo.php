@@ -9,7 +9,7 @@ try {
     $config = [
         // plinker connection | using tasks as to write in the correct .sqlite file
         'plinker' => [
-            'endpoint' => 'http://127.0.0.1:88',
+            'endpoint' => 'http://plinker.free.lxd.systems:88',
             'public_key'  => 'makeSomethingUp',
             'private_key' => 'againMakeSomethingUp'
         ],
@@ -43,6 +43,8 @@ try {
         //  dont worry its AES encrypted. see: encryption-proof.txt
         $config
     );
+    
+    echo '<pre>'.print_r($iptables->status(), true).'</pre>';
     
     //echo '<h2>Reset</h2>';
     //$iptables->reset(true);
