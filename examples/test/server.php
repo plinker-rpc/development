@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      */
     if (isset($_SERVER['HTTP_PLINKER'])) {
         // test its encrypted
-        file_put_contents('./encryption-proof.txt', print_r($_POST, true));
+        file_put_contents('./.plinker/encryption-proof.txt', print_r($_POST, true));
 
         /**
          * Define Plinker Config

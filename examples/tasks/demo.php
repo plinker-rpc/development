@@ -28,7 +28,7 @@ $config = [
 
     // daemon sleep time
     'sleep_time' => 1,
-    'pid_path'   => './pids'
+    'tmp_path'   => './.plinker'
 ];
 
 // init plinker client

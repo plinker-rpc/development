@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         isset($_POST['public_key'])
     ) {
         // test its encrypted
-        file_put_contents('./encryption-proof.txt', print_r($_POST, true));
+        file_put_contents('./.plinker/encryption-proof.txt', print_r($_POST, true));
 
         //
         $server = new \Plinker\Core\Server(

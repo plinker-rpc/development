@@ -25,7 +25,7 @@ $task = new Plinker\Tasks\Runner([
         
     // daemon sleep time
     'sleep_time' => 1,
-    'pid_path'   => './pids'
+    'tmp_path'   => './.plinker'
 ]);
 
 // $task->run('Test');

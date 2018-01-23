@@ -1,6 +1,12 @@
 <?php
 require '../../vendor/autoload.php';
 
+function debug($title, $out) {
+    echo '<h3 style="margin-bottom:-10px">'.$title.'</h3>';
+    echo '<pre style="tab-width: 4;font-size:11px;white-space: pre-wrap;">'.print_r($out, true).'</pre>';
+    echo '<hr>';
+}
+
 try {
     
     /**
@@ -44,21 +50,101 @@ try {
         $config
     );
     
-    echo '<pre>'.print_r($iptables->status(), true).'</pre>';
+    #
+    debug('Setup', $iptables->setup([
+        'build_sleep' => 5,
+        'lxd' => [
+            'bridge' => 'lxcbr0',
+            'ip' => '10.158.250.0/8'
+        ],
+        'docker' => [
+            'bridge' => 'docker0',
+            'ip' => '172.17.0.0/16'
+        ]
+    ]));
+    
+    #
+    //debug('Update Package', $iptables->update_package());
+    
+    debug('Status', $iptables->status());
+    
+    debug('Raw', $iptables->raw());
+    
+    #
+    debug('Available Ports', $iptables->availablePorts('ssh'));
+    
+    #
+    debug('Check Port In Use (2251)', $iptables->checkPortInUse(2251));
+    
+    #
+    debug('Check Allowed Port (2251)', $iptables->checkAllowedPort(2251));    
+    
+    #
+    debug('Check Allowed Port (5764)', $iptables->checkAllowedPort(5764));
+    
+    # a test label
+    $test_label = 'Example';
+
+    #
+    $form = [
+        // form model
+        'values' => [
+            'label' => $test_label,
+            'ip' => '10.158.250.5',
+            'port' => 2251,
+            'srv_type' => 'SSH',
+            'srv_port' => 22,
+            'enabled' => 1
+        ]
+    ];
+    debug('Add Port Forward', $iptables->addForward($form['values']));
+    
+    #
+    debug('Update Port Forward', $iptables->updateForward('label=?', [$test_label], ['ip' => '10.158.250.6']));
+    
+    #
+    debug('All Forwards', $iptables->fetch('iptable', 'type = ?', ['forward']));
+    
+    #
+    debug('All Blocked', $iptables->fetch('iptable', 'type = ?', ['block']));
+    
+    #
+    $form = [
+        'values' => [
+            'ip'    => '212.123.123.123',
+            'range' => 32, // 8, 16. 24. 32
+            'note'  => 'Port scanned server',
+            'enabled' => 1
+        ]
+    ];
+    debug('Add Block', $iptables->addBlock($form['values']));
+    
+    #
+    $form = [
+        'values' => [
+            'ip'    => '212.123.123.123',
+            'range' => 32, // 8, 16. 24. 32
+            'note'  => 'Just because!'
+        ]
+    ];
+    debug('Update Block', $iptables->updateBlock('ip=?', ['212.123.123.123'], $form['values']));
+    
+
+    
+    #
+    
+    #
+    
+    #
+    //$iptables->reset(true);
+    
+    #
+    exit;
     
     //echo '<h2>Reset</h2>';
     //$iptables->reset(true);
 
-    // setup and add nginx tasks
-    echo '<h2>Setup</h2>';
-    echo '<pre>'.print_r(
-        
-        $iptables->setup([
-            'build_sleep' => 1,
-            'nat_postrouting' => '10.0.0.0/8'
-        ])
-        
-    , true).'</pre>';
+
     
     ###################################################
     
