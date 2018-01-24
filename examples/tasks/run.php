@@ -1,15 +1,19 @@
 <?php
+
+if (php_sapi_name() != 'cli') {
+    header('HTTP/1.0 403 Forbidden');
+    exit('CLI script');
+}
+
 require '../../vendor/autoload.php';
 
 /*
-cron job
+ *cron job
+ *
+ * @reboot while sleep 1; do cd /var/www/html/examples/tasks && /usr/bin/php run.php ; done
+ */
 
-@reboot while sleep 1; do cd /var/www/html/examples/tasks && /usr/bin/php run.php ; done
-*/
-
-// init task runner
 $task = new Plinker\Tasks\Runner([
-    // database connection
     'database' => [
         'dsn'      => 'sqlite:./.plinker/database.db',
         'host'     => '',
@@ -17,19 +21,13 @@ $task = new Plinker\Tasks\Runner([
         'username' => '',
         'password' => '',
         'freeze'   => false,
-        'debug'    => false,
+        'debug'    => false
     ],
-         
-    // displays output to task runner console
-    'debug' => true,
-        
-    // daemon sleep time
-    'sleep_time' => 1,
-    'tmp_path'   => './.plinker'
+    'debug'       => true,
+    'log'         => true,
+    'sleep_time'  => 2,
+    'tmp_path'    => './.plinker',
+    'auto_update' => 3600
 ]);
 
-// $task->run('Test');
-
-$task->daemon('Queue', [
-    'sleep_time' => 1
-]);
+$task->daemon('Queue');
