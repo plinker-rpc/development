@@ -1,16 +1,15 @@
 <?php
 require '../../vendor/autoload.php';
 
+// load config file - (for testing)
+$config = parse_ini_file('../config.ini', true);
+    
 /**
  * Plinker Config
  */
 $config = [
     // plinker connection
-    'plinker' => [
-        'endpoint' => 'http://127.0.0.1/examples/tasks/server.php',
-        'public_key'  => 'makeSomethingUp',
-        'private_key' => 'againMakeSomethingUp'
-    ],
+    'plinker' => $config['plinker'],
     
     // database connection
     'database' => [

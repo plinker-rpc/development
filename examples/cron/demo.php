@@ -2,17 +2,15 @@
 require '../../vendor/autoload.php';
 
 try {
+    // load config file - (for testing)
+    $config = parse_ini_file('../config.ini', true);
     
     /**
      * Plinker Config
      */
     $config = [
         // plinker connection | using tasks as to write in the correct .sqlite file
-        'plinker' => [
-            'endpoint' => 'http://127.0.0.1/examples/cron/server.php',
-            'public_key'  => 'makeSomethingUp',
-            'private_key' => 'againMakeSomethingUp'
-        ],
+        'plinker' => $config['plinker'],
     
         // optional config
         'config' => [

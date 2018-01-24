@@ -9,16 +9,15 @@ function debug($title, $out) {
 
 try {
     
+    // load config file - (for testing)
+    $config = parse_ini_file('../config.ini', true);
+    
     /**
      * Plinker Config
      */
     $config = [
-        // plinker connection | using tasks as to write in the correct .sqlite file
-        'plinker' => [
-            'endpoint' => 'http://plinker.free.lxd.systems:88',
-            'public_key'  => 'makeSomethingUp',
-            'private_key' => 'againMakeSomethingUp'
-        ],
+        // plinker connection
+        'plinker' => $config['plinker'],
     
         // database connection
         'database' => [

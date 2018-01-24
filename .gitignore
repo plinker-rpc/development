@@ -4,3 +4,4 @@ composer.lock
 index.php
 encryption-proof.txt
 .php_cs.cache
+examples/config.ini
