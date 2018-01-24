@@ -11,7 +11,7 @@ cron job
 $task = new Plinker\Tasks\Runner([
     // database connection
     'database' => [
-        'dsn'      => 'sqlite:./database.db',
+        'dsn'      => 'sqlite:./.plinker/database.db',
         'host'     => '',
         'name'     => '',
         'username' => '',
