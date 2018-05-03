@@ -1,6 +1,3 @@
-**Plinker-RPC - Asterisk**
-=========
-
 !!! warning "No longer in development"
     This component is no longer being developed.
 

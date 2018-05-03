@@ -1,6 +1,3 @@
-**Plinker-RPC - LXC**
-=========
-
 PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.
 
 WIP: An older/deprecated component which controls LXC1.0 containers.

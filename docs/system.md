@@ -1,6 +1,3 @@
-**Plinker-RPC - System**
-=========
-
 PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.
 
 A system component which gives you access to server information.

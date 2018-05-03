@@ -176,11 +176,11 @@ deploy_tag() {
 }
 
 function psrfix_code {
-    ./php-cs-fixer fix ./vendor/plinker --verbose --rules=@PSR2 --diff
+    $projectDir/php-cs-fixer fix $projectDir/vendor/plinker --verbose --rules=@PSR2 --diff
 }
 
 function deploy_docs {
-    bash ./mkdocs.sh
+    bash $projectDir/mkdocs.sh
 }
 
 #

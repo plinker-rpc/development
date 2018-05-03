@@ -1,6 +1,3 @@
-**Plinker-RPC - Test/Demo**
-=========
-
 PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.
 
 A Test component which simply returns back what you sent, for testing/example purposes.
