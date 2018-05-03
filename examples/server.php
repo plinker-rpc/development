@@ -1,19 +1,22 @@
 <?php
 require '../vendor/autoload.php';
 
+// load config file - (for testing)
+$config = parse_ini_file('config.ini', true);
+
 /**
  * Its Plinker!
  */
 if (isset($_SERVER['HTTP_PLINKER'])) {
     // test its encrypted
-    file_put_contents('./.plinker/encryption-proof.txt', print_r($_POST, true));
+    file_put_contents('../encryption-proof.txt', print_r($_POST, true));
         
     /**
      * Define Plinker Config
      */
     $plinker = [
-        'public_key'  => 'makeSomethingUp',
-        'private_key' => 'againMakeSomethingUp',
+        'public_key'  => $config['public_key'],
+        'private_key' => $config['private_key'],
         // optional config
         'config' => [
             // optional - allowed ips, restrict access by ip

@@ -70,7 +70,7 @@ try {
     
     debug('Disks', $system->disks(true));
     
-    debug('Uptime', $system->uptime());
+    debug('Uptime', $system->uptime('-p'));
     
     debug('Ping', $system->ping('google.com'));
     

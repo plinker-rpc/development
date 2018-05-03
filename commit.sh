@@ -149,6 +149,11 @@ deploy_tag() {
 
         # push tag
         git push origin v$releaseSemvar
+        
+        sleep 10
+        
+        # pull latest
+        git pull origin master
     fi
 }
 
@@ -184,12 +189,6 @@ main() {
         if [ -d "$PWD/vendor/${components[$key]}" ]; then
 
             if [ -d "$PWD/vendor/${components[$key]}/.git" ]; then
-            
-                # generate docs
-                #$PWD/vendor/bin/phpdoc-md generate $PWD/vendor/${components[$key]} > $PWD/vendor/${components[$key]}/api.md
-                
-                # generate docs - main
-                #$PWD/vendor/bin/phpdoc-md generate $PWD/vendor/plinker > $PWD/api.md
 
                 echo "- Entering: $PWD/vendor/${components[$key]}"
                 cd "$PWD/vendor/${components[$key]}"
