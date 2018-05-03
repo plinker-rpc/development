@@ -27,4 +27,4 @@ Do you wish to [c]ommit, [d]eploy or [e]xit?
  - If you choose commit, it will push your changes and docs to github.
  - If you choose commit, it will ask: Which type of changes has been done: [p]atch, [m]inor, [M]ajor? Upon selection it will increment semantic version, tag then push your changes and docs to github.
 
-**dev_mkdocs.sh** is used to write docs with hot reloading.
+ - `bash ./dev_mkdocs.sh` is used to write docs with hot reloading at `http://127.0.0.0:8000`.
