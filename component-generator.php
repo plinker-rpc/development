@@ -31,4 +31,4 @@ $package = [
     ]
 ];
 
-require './component-generator/setup.php';
+require './.component-generator/setup.php';
