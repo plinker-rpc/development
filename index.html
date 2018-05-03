@@ -529,7 +529,7 @@
                 <p>PlinkerRPC PHP client/server makes it really easy to link and execute generic PHP 
 components on remote systems, while maintaining the feel of a local method call.</p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
-<p>Each component is in a composer package.</p>
+<p>Each component is a composer package.</p>
 <table>
 <thead>
 <tr>
@@ -544,34 +544,86 @@ components on remote systems, while maintaining the feel of a local method call.
 <td>Required base component which contains the client and server.</td>
 <td><a href="https://github.com/plinker-rpc/core/releases"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/plinker/core.svg?style=flat-square" /></a></td>
 </tr>
+<tr>
+<td><a href="./asterisk/">asterisk</a></td>
+<td>An Asterisk component which hooks into the Asterisk Management Interface on remote systems.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./base91/">base91</a></td>
+<td>A core component, which base91 encodes the payload.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./cron/">cron</a></td>
+<td>A cron component which allows you to read and control cron tasks.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./files/">files</a></td>
+<td>Read and write files on remote systems.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./iptables/">iptables</a></td>
+<td>Control IPtables on remote systems, mainly for purpose of port forwarding.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./lxc/">lxc</a></td>
+<td>WIP: An older/deprecated component which controls LXC1.0 containers.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./nginx/">nginx</a></td>
+<td>Manage nginx as a reverse proxy.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./redbean/">redbean</a></td>
+<td>RedBeanPHP component which will enable you to directly manage databases on remote sites.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./system/">system</a></td>
+<td>A system component which gives you access to server information.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./tasks/">tasks</a></td>
+<td>The tasks component allows you to write code based tasks which are completed by a daemon, this could allow you to create a single interface to control a cluster of servers tasks.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./test/">test</a></td>
+<td>A test component which simply returns back what you sent, for testing/example purposes.</td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p><em>*Some components require further steps.</em></p>
+<p>PlinkerRPC PHP client/server is also <a href="https://github.com/plinker-rpc/php-ext">available as a C extension</a> which can be installed with Zephir.</p>
 <h2 id="development-repository">Development repository<a class="headerlink" href="#development-repository" title="Permanent link">&para;</a></h2>
 <p>If you would like to contribute then use the <a href="https://github.com/plinker-rpc/development">development repository</a>.</p>
 <p>The repository is used to develop the entire project, to make it easy to work on many parts at the same time without forgetting what was done,
 it also contains bash scripts which will commit and do semantic versioning for each sub component and build this documentation.</p>
 <h2 id="install_1">Install<a class="headerlink" href="#install_1" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
+<ul>
 <li><code class="codehilite">git clone git@github.com:plinker-rpc/development.git .</code></li>
-<li>
-<p><code class="codehilite">composer install</code></p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Nulla lobortis egestas semper</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Curabitur elit nibh, euismod et ullamcorper at, iaculis feugiat est</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Vestibulum convallis sit amet nisi a tincidunt<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> In hac habitasse platea dictumst</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> In scelerisque nibh non dolor mollis congue sed et metus</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Sed egestas felis quis elit dapibus, ac aliquet turpis mattis</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Praesent sed risus massa</li>
+<li><code class="codehilite">composer install</code></li>
 </ul>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Nulla vel eros venenatis, imperdiet enim id, faucibus nisi</li>
-</ul>
+<!--
+* [x] Lorem ipsum dolor sit amet, consectetur adipiscing elit
+* [x] Nulla lobortis egestas semper
+* [x] Curabitur elit nibh, euismod et ullamcorper at, iaculis feugiat est
+* [ ] Vestibulum convallis sit amet nisi a tincidunt
+    * [x] In hac habitasse platea dictumst
+    * [x] In scelerisque nibh non dolor mollis congue sed et metus
+    * [x] Sed egestas felis quis elit dapibus, ac aliquet turpis mattis
+    * [ ] Praesent sed risus massa
+* [ ] Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque
+* [ ] Nulla vel eros venenatis, imperdiet enim id, faucibus nisi
+-->
+
 <p><strong>Committing changes:</strong></p>
 <ul>
 <li><code class="codehilite"><span class="p">.</span><span class="o">/</span><span class="nx">php</span><span class="o">-</span><span class="nx">cs</span><span class="o">-</span><span class="nx">fixer</span> <span class="nx">fix</span> <span class="p">.</span><span class="o">/</span><span class="nx">vendor</span><span class="o">/</span><span class="nx">plinker</span> <span class="o">--</span><span class="nx">verbose</span> <span class="o">--</span><span class="nx">rules</span><span class="o">=</span><span class="err">@</span><span class="nx">PSR2</span> <span class="o">--</span><span class="nx">dry</span><span class="o">-</span><span class="nx">run</span> <span class="o">--</span><span class="nx">diff</span></code></li>
