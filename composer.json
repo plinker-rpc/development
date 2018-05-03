@@ -16,8 +16,5 @@
         "plinker/tasks": "master",
         "plinker/test": "master",
         "plinker/nginx": "master"
-    },
-    "require-dev": {
-        "victorjonsson/markdowndocs": "^1.3"
     }
 }
