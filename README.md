@@ -9,12 +9,22 @@ Development repository
 This repository is used to develop the entire project to make it easy to work on many parts at the same time without forgetting what was done,
 it contains a bash script which will commit and do semantic versioning for each sub component.
 
-**Installing:**
+## Installing
 
  - `git clone git@github.com:plinker-rpc/development.git .`
  - `composer install`
 
-**Committing changes:**
+## Committing Changes
 
- - `./php-cs-fixer fix ./vendor/plinker --verbose --rules=@PSR2 --dry-run --diff`
+Bash scripts have been added to automate this, do not do it manually.
+
  - `bash ./commit.sh "A really informative commit message, and not just ."`
+
+The above 1 liner will ask:
+
+Do you wish to [c]ommit, [d]eploy or [e]xit?
+
+If you choose commit, it will push your changes and docs to github.
+If you choose commit, it will ask: Which type of changes has been done: [p]atch, [m]inor, [M]ajor? Upon selection it will increment semantic version, tag then push your changes and docs to github.
+
+**dev_mkdocs.sh** is used to write docs with hot reloading.
