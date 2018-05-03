@@ -22,9 +22,9 @@ Bash scripts have been added to automate this, do not do it manually.
 
 The above 1 liner will ask:
 
-Do you wish to [c]ommit, [d]eploy or [e]xit?
+`Do you wish to [c]ommit, [d]eploy or [e]xit?`
 
  - If you choose commit, it will push your changes and docs to github.
- - If you choose commit, it will ask: Which type of changes has been done: [p]atch, [m]inor, [M]ajor? Upon selection it will increment semantic version, tag then push your changes and docs to github.
+ - If you choose eploy, it will ask: `Which type of changes has been done: [p]atch, [m]inor, [M]ajor?` Upon selection it will increment the semantic version, tag then push your changes and docs to github.
 
- - `bash ./dev_mkdocs.sh` is used to write docs with hot reloading at `http://127.0.0.0:8000`.
+`bash ./dev_mkdocs.sh` is used to write docs with hot reloading at `http://127.0.0.0:8000`
