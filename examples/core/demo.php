@@ -27,6 +27,8 @@ $client = new \Plinker\Core\Client(
     ]
 );
 
+$client = plinker_client('http://10.158.250.158/examples/core/server.php', 'a secret password');
+
 debug('$client', $client);
 
 debug('$client->info()', $client->info());
