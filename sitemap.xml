@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>None/</loc>
+     <loc>https://github.com/plinker-rpc/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -11,7 +11,7 @@
 
     
     <url>
-     <loc>None/asterisk/</loc>
+     <loc>https://github.com/plinker-rpc/asterisk/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -19,7 +19,7 @@
 
     
     <url>
-     <loc>None/base91/</loc>
+     <loc>https://github.com/plinker-rpc/base91/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -27,7 +27,7 @@
 
     
     <url>
-     <loc>None/core/</loc>
+     <loc>https://github.com/plinker-rpc/core/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -35,7 +35,7 @@
 
     
     <url>
-     <loc>None/cron/</loc>
+     <loc>https://github.com/plinker-rpc/cron/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -43,7 +43,7 @@
 
     
     <url>
-     <loc>None/files/</loc>
+     <loc>https://github.com/plinker-rpc/files/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -51,7 +51,7 @@
 
     
     <url>
-     <loc>None/iptables/</loc>
+     <loc>https://github.com/plinker-rpc/iptables/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -59,7 +59,7 @@
 
     
     <url>
-     <loc>None/lxc/</loc>
+     <loc>https://github.com/plinker-rpc/lxc/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -67,7 +67,7 @@
 
     
     <url>
-     <loc>None/nginx/</loc>
+     <loc>https://github.com/plinker-rpc/nginx/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -75,7 +75,7 @@
 
     
     <url>
-     <loc>None/redbean/</loc>
+     <loc>https://github.com/plinker-rpc/redbean/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -83,7 +83,7 @@
 
     
     <url>
-     <loc>None/system/</loc>
+     <loc>https://github.com/plinker-rpc/system/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -91,7 +91,7 @@
 
     
     <url>
-     <loc>None/tasks/</loc>
+     <loc>https://github.com/plinker-rpc/tasks/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -99,7 +99,7 @@
 
     
     <url>
-     <loc>None/test/</loc>
+     <loc>https://github.com/plinker-rpc/test/</loc>
      <lastmod>2018-05-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
