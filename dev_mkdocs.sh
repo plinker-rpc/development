@@ -57,12 +57,6 @@ function move_component_docs {
 
 function main {
     move_component_docs
-    
-    
-    #shopt -s globstar
-    #for i in ./vendor/plinker/*/README.md; do
-    #    echo "$i"
-    #done
 
     echo "Stopping mkdocs server"
     stop_mkdocs_serve
@@ -76,13 +70,3 @@ main
 while block; do
     main
 done
-
-
-#!/bin/bash
-
-# @see: http://www.mkdocs.org
-# @dev: mkdocs serve -a 10.158.250.200:8000
-
-#/usr/bin/mkdocs gh-deploy
-
-#rm site/ -Rf

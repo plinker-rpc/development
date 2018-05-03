@@ -157,6 +157,14 @@ deploy_tag() {
     fi
 }
 
+function psrfix_code {
+    ./php-cs-fixer fix ./vendor/plinker --verbose --rules=@PSR2 --diff
+}
+
+function deploy_docs {
+    bash ./mkdocs.sh
+}
+
 #
 main() {
     echo "---------------------------------------------------"
@@ -179,6 +187,9 @@ main() {
 
     # move into project workspace
     cd $projectDir
+    
+    # run php-cs-fixer function
+    psrfix_code
 
     # loop over project components
     for key in "${!components[@]}"
@@ -219,6 +230,9 @@ main() {
     if [ -f /tmp/semvar_choice ]; then
         rm /tmp/semvar_choice
     fi
+    
+    # deploy docs to github
+    deploy_docs
 }
 
 main
