@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Core - PlinkerRPC</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Core";
+    var mkdocs_page_input_path = "core.md";
+    var mkdocs_page_url = "/core/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PlinkerRPC</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../asterisk/">Asterisk</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../base91/">Base91</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Core</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#plinkerrpc-core">PlinkerRPC - Core</a></li>
+                
+                    <li><a class="toctree-l4" href="#install">Install</a></li>
+                
+                    <li><a class="toctree-l4" href="#client">Client</a></li>
+                
+                    <li><a class="toctree-l4" href="#server">Server</a></li>
+                
+                    <li><a class="toctree-l4" href="#methods">Methods</a></li>
+                
+                    <li><a class="toctree-l4" href="#testing">Testing</a></li>
+                
+                    <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
+                
+                    <li><a class="toctree-l4" href="#security">Security</a></li>
+                
+                    <li><a class="toctree-l4" href="#credits">Credits</a></li>
+                
+                    <li><a class="toctree-l4" href="#development-encouragement">Development Encouragement</a></li>
+                
+                    <li><a class="toctree-l4" href="#sponsors">Sponsors</a></li>
+                
+                    <li><a class="toctree-l4" href="#license">License</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../cron/">Cron</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../files/">Files</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../iptables/">Iptables</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../lxc/">Lxc</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../nginx/">Nginx</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../redbean/">Redbean</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../system/">System</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tasks/">Tasks</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../test/">Test</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PlinkerRPC</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Core</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="plinkerrpc-core"><strong>PlinkerRPC - Core</strong></h1>
+<p><a href="https://travis-ci.org/plinker-rpc/core"><img alt="Build Status" src="https://travis-ci.org/plinker-rpc/core.svg?branch=master" /></a>
+<a href="https://styleci.io/repos/103975908"><img alt="StyleCI" src="https://styleci.io/repos/103975908/shield?branch=master" /></a>
+<a href="https://scrutinizer-ci.com/g/plinker-rpc/core/?branch=master"><img alt="Scrutinizer Code Quality" src="https://scrutinizer-ci.com/g/plinker-rpc/core/badges/quality-score.png?b=master" /></a>
+<a href="https://scrutinizer-ci.com/g/plinker-rpc/core/code-structure/master/code-coverage"><img alt="Code Coverage" src="https://scrutinizer-ci.com/g/plinker-rpc/core/badges/coverage.png?b=master" /></a>
+<a href="https://github.com/plinker-rpc/core/releases"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/plinker/core.svg?style=flat-square" /></a>
+<a href="https://packagist.org/packages/plinker/core"><img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/plinker/core.svg?style=flat-square" /></a></p>
+<p>Plinker PHP RPC client/server makes it really easy to link and execute generic PHP components on remote systems, while maintaining the feel of a local method call.</p>
+<p><strong>New changes in version 3 include:</strong></p>
+<ul>
+<li>Now compaible with <a href="https://github.com/plinker-rpc/php-ext">PHP extension</a>.</li>
+<li>Built-in core components and info method added so components can be discovered.</li>
+<li>Only one client instance is now needed, made use of __get() to dynamically set component.</li>
+<li>User defined components/classes, so you can call your own code.</li>
+<li>Both request and response is encrypted and signed.</li>
+</ul>
+<h2 id="install">Install</h2>
+<p>Require this package with composer using the following command:</p>
+<pre><code class="bash">$ composer require plinker/core
+</code></pre>
+
+<h3 id="additional-setup">Additional Setup</h3>
+<p>This component does not require any additional setup.</p>
+<h2 id="client">Client</h2>
+<p>Creating a client instance is done as follows:</p>
+<pre><code>&lt;?php
+require 'vendor/autoload.php';
+
+/**
+ * Initialize plinker client.
+ *
+ * @param string $server - URL to server listener.
+ * @param string $config - server secret, and/or a additional component data
+ */
+$client = new \Plinker\Core\Client(
+    'http://example.com/server.php',
+    [
+        'secret' =&gt; 'a secret password',
+    ]
+);
+</code></pre>
+<h2 id="server">Server</h2>
+<p>Creating a server listener is done as follows:</p>
+<p><strong>Optional features:</strong></p>
+<ul>
+<li>Set a secret, which all clients will require. </li>
+<li>Lock down to specific client IP addresses for addtional security.</li>
+<li>Define your own classes in the <code>classes</code> array then access like above <code>$client-&gt;class-&gt;method()</code>, which can interface out of scope components or composer packages.</li>
+<li>Define addtional key values for database connections etc, or you could pass the parameters through the client connection.</li>
+</ul>
+<!-- after list code block fix -->
+
+<pre><code>&lt;?php
+require 'vendor/autoload.php';
+
+/**
+ * Initialize plinker server.
+ */
+if (isset($_SERVER['HTTP_PLINKER'])) {
+    // init plinker server
+    echo (new \Plinker\Server([
+        'secret' =&gt; 'a secret password',
+        'allowed_ips' =&gt; [
+            '127.0.0.1'
+        ],
+        'classes' =&gt; [
+            'test' =&gt; [
+                // path to file
+                'classes/test.php',
+                // addtional key/values
+                [
+                    'key' =&gt; 'value'
+                ]
+            ],
+            // you can use namespaced classes
+            'Foo\\Demo' =&gt; [
+                // path to file
+                'some_class/demo.php',
+                // addtional key/values
+                [
+                    'key' =&gt; 'value'
+                ]
+            ],
+            // ...
+        ]
+    ]))-&gt;listen();
+}
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Once setup, you call the class though its namespace to its method.</p>
+<h3 id="info">Info</h3>
+<p>The info method returns defined endpoint methods and their parameters.</p>
+<p><strong>Call</strong></p>
+<pre><code>$result = $client-&gt;info();
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>Array
+(
+    [class] =&gt; Array
+        (
+            [Foo\Demo] =&gt; Array
+                (
+                    [config] =&gt; Array
+                        (
+                            [key] =&gt; value
+                        )
+
+                    [methods] =&gt; Array
+                        (
+                            [config] =&gt; Array
+                                (
+                                )
+
+                            [this] =&gt; Array
+                                (
+                                )
+
+                            [test] =&gt; Array
+                                (
+                                    [0] =&gt; x
+                                    [1] =&gt; y
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+</code></pre>
+
+<h2 id="testing">Testing</h2>
+<pre><code class="bash">$ composer test
+</code></pre>
+
+<h2 id="contributing">Contributing</h2>
+<p>Please see <a href="https://github.com/plinker-rpc/core/blob/master/CONTRIBUTING">CONTRIBUTING</a> for details.</p>
+<h2 id="security">Security</h2>
+<p>If you discover any security related issues, please contact me via <a href="https://cherone.co.uk">https://cherone.co.uk</a> instead of using the issue tracker.</p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li><a href="https://github.com/lcherone">Lawrence Cherone</a></li>
+<li><a href="https://github.com/plinker-rpc/core/graphs/contributors">All Contributors</a></li>
+</ul>
+<h2 id="development-encouragement">Development Encouragement</h2>
+<p>If you use this code and make money from it and want to show your appreciation,
+please feel free to make a donation <a href="https://www.paypal.me/lcherone">https://www.paypal.me/lcherone</a>, thanks.</p>
+<h2 id="sponsors">Sponsors</h2>
+<p>Get your company or name listed here.</p>
+<h2 id="license">License</h2>
+<p>The MIT License (MIT). Please see <a href="https://github.com/plinker-rpc/core/blob/master/LICENSE">License File</a> for more information.</p>
+<p>See <a href="https://github.com/plinker-rpc">organisations page</a> for additional components.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cron/" class="btn btn-neutral float-right" title="Cron">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../base91/" class="btn btn-neutral" title="Base91"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../base91/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cron/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
