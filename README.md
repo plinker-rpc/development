@@ -18,7 +18,7 @@ it contains a bash script which will commit and do semantic versioning for each 
 
 Bash scripts have been added to automate this, do not do it manually.
 
- - `bash ./commit.sh "A really informative commit message, and not just ."`
+ - `bash ./commit.sh "A really informative commit message."`
 
 The above 1 liner will ask:
 
@@ -58,6 +58,6 @@ Upon ready state:
  - Make sure `README.md` conforms to docs structure.
  - Create a github repository in the organisation, push your changes.
  - Add the new component to `commit.sh`, `dev_mkdocs.sh` and `mkdocs.sh` component arrays.
- - Run `bash ./commit.sh "Inital Commit"
+ - Run `bash ./commit.sh "Inital Commit"`
  - Add to packagist.
  - Enable on styleCI, travisCI, scrutinizer.
