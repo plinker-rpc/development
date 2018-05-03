@@ -19,7 +19,7 @@ if (!file_exists(TARGET_DIR.'/src')) {
 /**
  * Create docs directory
  */
-if (!file_exists(TARGET_DIR.'/src')) {
+if (!file_exists(TARGET_DIR.'/docs')) {
     mkdir(TARGET_DIR.'/docs', 0755, true);
 }
 
@@ -77,7 +77,7 @@ process_file('README.md', [
 ]);
 
 // copy readme.md to docs
-copy(SOURCE_DIR.'/README.md', TARGET_DIR.'/docs/index.md');
+copy(TARGET_DIR.'/README.md', TARGET_DIR.'/docs/index.md');
 
 //
 $namespace = rtrim(array_search('src', $package['autoload']['psr-4']), '\\');
@@ -152,13 +152,13 @@ file_put_contents(
 );
 
 // add unit test
-file_put_contents(TARGET_DIR.'/tests/'.$testName.'Test.php', '<?php
+file_put_contents(TARGET_DIR.'/tests/'.$className.'Test.php', '<?php
 
 namespace '.$namespace.';
 
 use PHPUnit\Framework\TestCase;
 
-class '.$testName.'Test extends TestCase
+class '.$className.'Test extends TestCase
 {
     /**
      *
