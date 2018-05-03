@@ -29,7 +29,7 @@ The above 1 liner will ask:
 
 `bash ./dev_mkdocs.sh` is used to write docs with hot reloading at `http://127.0.0.0:8000`
 
-## Creating New Component
+## New Components
 
 To create a new component simply edit the `component-generator.php` file then run it.
 
