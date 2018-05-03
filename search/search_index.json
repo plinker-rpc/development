@@ -2,43 +2,118 @@
     "docs": [
         {
             "location": "/", 
-            "text": "PlinkerRPC PHP client/server makes it really easy to link and execute generic PHP \ncomponents on remote systems, while maintaining the feel of a local method call.\n\n\nInstall\n\n\nEach component is a composer package.\n\n\n\n\n\n\n\n\nComponent\n\n\nDescription\n\n\nVersion\n\n\n\n\n\n\n\n\n\n\ncore\n\n\nRequired base component which contains the client and server.\n\n\n\n\n\n\n\n\nasterisk\n\n\nAn Asterisk component which hooks into the Asterisk Management Interface on remote systems.\n\n\n\n\n\n\n\n\nbase91\n\n\nA core component, which base91 encodes the payload.\n\n\n\n\n\n\n\n\ncron\n\n\nA cron component which allows you to read and control cron tasks.\n\n\n\n\n\n\n\n\nfiles\n\n\nRead and write files on remote systems.\n\n\n\n\n\n\n\n\niptables\n\n\nControl IPtables on remote systems, mainly for purpose of port forwarding.\n\n\n\n\n\n\n\n\nlxc\n\n\nWIP: An older/deprecated component which controls LXC1.0 containers.\n\n\n\n\n\n\n\n\nnginx\n\n\nManage nginx as a reverse proxy.\n\n\n\n\n\n\n\n\nredbean\n\n\nRedBeanPHP component which will enable you to directly manage databases on remote sites.\n\n\n\n\n\n\n\n\nsystem\n\n\nA system component which gives you access to server information.\n\n\n\n\n\n\n\n\ntasks\n\n\nThe tasks component allows you to write code based tasks which are completed by a daemon, this could allow you to create a single interface to control a cluster of servers tasks.\n\n\n\n\n\n\n\n\ntest\n\n\nA test component which simply returns back what you sent, for testing/example purposes.\n\n\n\n\n\n\n\n\n\n\nPlinkerRPC PHP client/server is also \navailable as a C extension\n which can be installed with Zephir.\n\n\nDevelopment repository\n\n\nIf you would like to contribute then use the \ndevelopment repository\n.\n\n\nThe repository is used to develop the entire project, to make it easy to work on many parts at the same time without forgetting what was done,\nit also contains bash scripts which will commit and do semantic versioning for each sub component and build this documentation.\n\n\nInstall\n\n\n\n\ngit clone git@github.com:plinker-rpc/development.git .\n\n\ncomposer install\n\n\n\n\n\n\n\nCommitting changes:\n\n\n\n\n.\n/\nphp\n-\ncs\n-\nfixer\n \nfix\n \n.\n/\nvendor\n/\nplinker\n \n--\nverbose\n \n--\nrules\n=\n@\nPSR2\n \n--\ndry\n-\nrun\n \n--\ndiff\n\n\nbash ./commit.sh \nAn informative commit message\n\n\n\n\nDevelopment Encouragement\n\n\nIf you use this code and make money from it and want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed here.", 
+            "text": "PlinkerRPC PHP client/server allows you to securely execute generic PHP \ncode and components on remote sites, while maintaining the feel of a local method call.\n\n\nComponents\n\n\nEach component is a composer package, you can find them \non packagist\n.\n\n\n\n\n\n\n\n\nComponent\n\n\nDescription\n\n\nVersion\n\n\n\n\n\n\n\n\n\n\ncore\n\n\nRequired base component which contains the client and server.\n\n\n\n\n\n\n\n\nasterisk\n\n\nAn Asterisk component which hooks into the Asterisk Management Interface on remote systems.\n\n\n\n\n\n\n\n\nbase91\n\n\nA core component, which base91 encodes the payload.\n\n\n\n\n\n\n\n\ncron\n\n\nA cron component which allows you to read and control cron tasks.\n\n\n\n\n\n\n\n\nfiles\n\n\nRead and write files on remote systems.\n\n\n\n\n\n\n\n\niptables\n\n\nControl IPtables on remote systems, mainly for purpose of port forwarding.\n\n\n\n\n\n\n\n\nlxc\n\n\nWIP: An older/deprecated component which controls LXC1.0 containers.\n\n\n\n\n\n\n\n\nnginx\n\n\nManage nginx as a reverse proxy.\n\n\n\n\n\n\n\n\nredbean\n\n\nRedBeanPHP component which will enable you to directly manage databases on remote sites.\n\n\n\n\n\n\n\n\nsystem\n\n\nA system component which gives you access to server information.\n\n\n\n\n\n\n\n\ntasks\n\n\nThe tasks component allows you to write code based tasks which are completed by a daemon, this could allow you to create a single interface to control a cluster of servers tasks.\n\n\n\n\n\n\n\n\ntest\n\n\nA test component which simply returns back what you sent, for testing/example purposes.\n\n\n\n\n\n\n\n\n\n\n\n\nDid you know?\n\n\nPlinkerRPC PHP client/server is also \navailable as a C extension\n which can be installed with Zephir.\n\n\n\n\n\n\nDevelopment Repository\n\n\nThe development repository is used to develop the entire project to make it easy to work on many parts at the same time without forgetting what was done,\nit contains a bash script which will commit and do semantic versioning for each sub component.\n\n\nInstalling\n\n\n\n\ngit clone git@github.com:plinker-rpc/development.git .\n\n\ncomposer install\n\n\n\n\nCommitting Changes\n\n\nBash scripts have been added to automate this, do not do it manually.\n\n\n\n\nbash ./commit.sh \nA really informative commit message.\n\n\n\n\nThe above 1 liner will ask:\n\n\nDo you wish to [c]ommit, [d]eploy or [e]xit?\n\n\n\n\nIf you choose commit, it will push your changes and docs to github.\n\n\nIf you choose deploy, it will ask: \nWhich type of changes has been done: [p]atch, [m]inor, [M]ajor?\n, upon choice it will increment the semantic version, tag then push your changes and docs to github.\n\n\n\n\nbash ./dev_mkdocs.sh\n is used to write docs with hot reloading at \nhttp://127.0.0.0:8000\n\n\nNew Components\n\n\nTo create a new component simply edit the \ncomponent-generator.php\n file then run it.\n\n\nIt will generate the following structure in vendor, ready to start \ncreating your component package.\n\n\ncomponent \u2510\n          \u251c\u2500\u2500 src\n          \u2502   \u251c\u2500\u2500 Component.php\n          \u251c\u2500\u2500 tests\n          \u2502   \u251c\u2500\u2500 fixtures\n          \u2502   \u251c\u2500\u2500 ComponentTest.php\n          \u2502   \u2514\u2500\u2500 bootstrap.php\n          \u251c\u2500\u2500 .gitignore\n          \u251c\u2500\u2500 .scrutinizer.yml\n          \u251c\u2500\u2500 .styleci.yml\n          \u251c\u2500\u2500 .travis.yml\n          \u251c\u2500\u2500 CONTRIBUTING.md\n          \u251c\u2500\u2500 LICENSE\n          \u251c\u2500\u2500 phpunit.xml\n          \u251c\u2500\u2500 README.md\n          \u2514\u2500\u2500 composer.json\n\n\n\n\n\nWhen ready:\n\n\n\n\nMake sure \nREADME.md\n conforms to docs structure.\n\n\nCreate a github repository in the organisation, push your changes.\n\n\nAdd the new component to \ncommit.sh\n, \ndev_mkdocs.sh\n and \nmkdocs.sh\n component arrays.\n\n\nRun \nbash ./commit.sh \nInital Commit\n\n\nAdd to packagist.\n\n\nEnable on \nStyleCI\n, \nTravisCI\n, \nScrutinizerCI\n.\n\n\n\n\nRequest a Component\n\n\nIf you've got an idea for a component and would like to see it added, feel free to \nopen an issue\n.\n\n\nDevelopment Encouragement\n\n\nIf you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed throughout the documentation and on each github repository, contact me at \nhttps://cherone.co.uk\n for further details.", 
             "title": "Home"
         }, 
         {
-            "location": "/#install", 
-            "text": "Each component is a composer package.     Component  Description  Version      core  Required base component which contains the client and server.     asterisk  An Asterisk component which hooks into the Asterisk Management Interface on remote systems.     base91  A core component, which base91 encodes the payload.     cron  A cron component which allows you to read and control cron tasks.     files  Read and write files on remote systems.     iptables  Control IPtables on remote systems, mainly for purpose of port forwarding.     lxc  WIP: An older/deprecated component which controls LXC1.0 containers.     nginx  Manage nginx as a reverse proxy.     redbean  RedBeanPHP component which will enable you to directly manage databases on remote sites.     system  A system component which gives you access to server information.     tasks  The tasks component allows you to write code based tasks which are completed by a daemon, this could allow you to create a single interface to control a cluster of servers tasks.     test  A test component which simply returns back what you sent, for testing/example purposes.      PlinkerRPC PHP client/server is also  available as a C extension  which can be installed with Zephir.", 
-            "title": "Install"
+            "location": "/#components", 
+            "text": "Each component is a composer package, you can find them  on packagist .     Component  Description  Version      core  Required base component which contains the client and server.     asterisk  An Asterisk component which hooks into the Asterisk Management Interface on remote systems.     base91  A core component, which base91 encodes the payload.     cron  A cron component which allows you to read and control cron tasks.     files  Read and write files on remote systems.     iptables  Control IPtables on remote systems, mainly for purpose of port forwarding.     lxc  WIP: An older/deprecated component which controls LXC1.0 containers.     nginx  Manage nginx as a reverse proxy.     redbean  RedBeanPHP component which will enable you to directly manage databases on remote sites.     system  A system component which gives you access to server information.     tasks  The tasks component allows you to write code based tasks which are completed by a daemon, this could allow you to create a single interface to control a cluster of servers tasks.     test  A test component which simply returns back what you sent, for testing/example purposes.       Did you know?  PlinkerRPC PHP client/server is also  available as a C extension  which can be installed with Zephir.", 
+            "title": "Components"
         }, 
         {
             "location": "/#development-repository", 
-            "text": "If you would like to contribute then use the  development repository .  The repository is used to develop the entire project, to make it easy to work on many parts at the same time without forgetting what was done,\nit also contains bash scripts which will commit and do semantic versioning for each sub component and build this documentation.", 
-            "title": "Development repository"
+            "text": "The development repository is used to develop the entire project to make it easy to work on many parts at the same time without forgetting what was done,\nit contains a bash script which will commit and do semantic versioning for each sub component.", 
+            "title": "Development Repository"
         }, 
         {
-            "location": "/#install_1", 
-            "text": "git clone git@github.com:plinker-rpc/development.git .  composer install    Committing changes:   . / php - cs - fixer   fix   . / vendor / plinker   -- verbose   -- rules = @ PSR2   -- dry - run   -- diff  bash ./commit.sh  An informative commit message", 
-            "title": "Install"
+            "location": "/#installing", 
+            "text": "git clone git@github.com:plinker-rpc/development.git .  composer install", 
+            "title": "Installing"
+        }, 
+        {
+            "location": "/#committing-changes", 
+            "text": "Bash scripts have been added to automate this, do not do it manually.   bash ./commit.sh  A really informative commit message.   The above 1 liner will ask:  Do you wish to [c]ommit, [d]eploy or [e]xit?   If you choose commit, it will push your changes and docs to github.  If you choose deploy, it will ask:  Which type of changes has been done: [p]atch, [m]inor, [M]ajor? , upon choice it will increment the semantic version, tag then push your changes and docs to github.   bash ./dev_mkdocs.sh  is used to write docs with hot reloading at  http://127.0.0.0:8000", 
+            "title": "Committing Changes"
+        }, 
+        {
+            "location": "/#new-components", 
+            "text": "To create a new component simply edit the  component-generator.php  file then run it.  It will generate the following structure in vendor, ready to start \ncreating your component package.  component \u2510\n          \u251c\u2500\u2500 src\n          \u2502   \u251c\u2500\u2500 Component.php\n          \u251c\u2500\u2500 tests\n          \u2502   \u251c\u2500\u2500 fixtures\n          \u2502   \u251c\u2500\u2500 ComponentTest.php\n          \u2502   \u2514\u2500\u2500 bootstrap.php\n          \u251c\u2500\u2500 .gitignore\n          \u251c\u2500\u2500 .scrutinizer.yml\n          \u251c\u2500\u2500 .styleci.yml\n          \u251c\u2500\u2500 .travis.yml\n          \u251c\u2500\u2500 CONTRIBUTING.md\n          \u251c\u2500\u2500 LICENSE\n          \u251c\u2500\u2500 phpunit.xml\n          \u251c\u2500\u2500 README.md\n          \u2514\u2500\u2500 composer.json  When ready:   Make sure  README.md  conforms to docs structure.  Create a github repository in the organisation, push your changes.  Add the new component to  commit.sh ,  dev_mkdocs.sh  and  mkdocs.sh  component arrays.  Run  bash ./commit.sh  Inital Commit  Add to packagist.  Enable on  StyleCI ,  TravisCI ,  ScrutinizerCI .", 
+            "title": "New Components"
+        }, 
+        {
+            "location": "/#request-a-component", 
+            "text": "If you've got an idea for a component and would like to see it added, feel free to  open an issue .", 
+            "title": "Request a Component"
         }, 
         {
             "location": "/#development-encouragement", 
-            "text": "If you use this code and make money from it and want to show your appreciation,\nplease feel free to make a donation  https://www.paypal.me/lcherone , thanks.", 
+            "text": "If you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation  https://www.paypal.me/lcherone , thanks.", 
             "title": "Development Encouragement"
         }, 
         {
             "location": "/#sponsors", 
-            "text": "Get your company or name listed here.", 
+            "text": "Get your company or name listed throughout the documentation and on each github repository, contact me at  https://cherone.co.uk  for further details.", 
             "title": "Sponsors"
         }, 
         {
             "location": "/asterisk/", 
-            "text": "No longer in development\n\n\nThis component is no longer being developed.\n\n\n\n\nPlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.\n\n\nAn Asterisk component which hooks into the Asterisk Management Interface on remote systems.\n\n\nComposer\n\n\n{\n    \nrequire\n: {\n        \nplinker/core\n: \n=v0.1\n,\n        \nplinker/asterisk\n: \n=v0.1\n\n    }\n}\n\n\n\n\n\nMaking a remote call.\n\n\nWIP: To be updated with info on how to use this component, also add the tasks code.\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * Initialize plinker client.\n\n\n *\n\n\n * @param string $url to host\n\n\n * @param string $component namespace of class to interface to\n\n\n * @param string $public_key to authenticate on host\n\n\n * @param string $private_key to authenticate on host\n\n\n * @param string $config component construct config\n\n\n */\n\n\n$plink\n \n=\n \nnew\n \nPlinker\\Core\\Client\n(\n\n    \nhttp://example.com\n,\n\n    \nTest\\Demo\n,\n\n    \nusername\n,\n\n    \npassword\n,\n\n    \narray\n(\n\n        \ntime\n \n=\n \ntime\n()\n\n    \n)\n\n\n);\n\n\necho\n \npre\n.\nprint_r\n(\n$plink\n-\ntest\n(),\n \ntrue\n)\n.\n/pre\n;\n\n\n\n\n\n\nthen the server part...\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * POST Server Part\n\n\n */\n\n\nif\n \n(\n$_SERVER\n[\nREQUEST_METHOD\n]\n \n==\n \nPOST\n)\n \n{\n\n    \n$server\n \n=\n \nnew\n \nPlinker\\Core\\Server\n(\n\n        \n$_POST\n,\n\n        \nusername\n,\n\n        \npassword\n\n    \n);\n\n    \nexit\n(\n$server\n-\nexecute\n());\n\n\n}\n\n\n\n\n\n\nSee the \norganisations page\n for additional components.", 
+            "text": "Development halted\n\n\nThis component is no longer being actively developed, though bugs will be fixed if reported.\n\n\n\n\nAn Asterisk component which hooks into the Asterisk Management Interface (AMI) on remote systems. Using it adds addtional security as you can lock down AMI to listen on only on localhost.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/asterisk\n\n\n\n\n\nClient\n\n\nCreating a client instance is done as follows:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * Initialize plinker client.\n\n\n *\n\n\n * @param string $server - URL to server listener.\n\n\n * @param string $config - server secret, and/or a additional component data\n\n\n */\n\n\n$client\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n    \nhttp://example.com/server.php\n,\n\n    \n[\n\n        \nsecret\n \n=\n \na secret password\n,\n\n        \ndatabase\n \n=\n \n[\n\n            \ndsn\n \n=\n \nmysql:host=127.0.0.1;dbname=asterisk\n,\n\n            \nusername\n \n=\n \n,\n\n            \npassword\n \n=\n \n,\n\n            \ndatabase\n \n=\n \n,\n\n            \nfreeze\n \n=\n \nfalse\n,\n\n            \ndebug\n \n=\n \nfalse\n\n        \n],\n\n        \nami\n \n=\n \n[\n\n            \nserver\n \n=\n \n127.0.0.1\n,\n\n            \nport\n \n=\n \n5038\n,\n\n            \nusername\n \n=\n \n,\n\n            \npassword\n \n=\n \n\n        \n]\n\n    \n]\n\n\n);\n\n\n\n// or using global function\n\n\n$client\n \n=\n \nplinker_client\n(\nhttp://example.com/server.php\n,\n \na secret password\n,\n \n[\n\n    \ndatabase\n \n=\n \n[\n\n        \ndsn\n \n=\n \nmysql:host=127.0.0.1;dbname=asterisk\n,\n\n        \nusername\n \n=\n \n,\n\n        \npassword\n \n=\n \n,\n\n        \ndatabase\n \n=\n \n,\n\n        \nfreeze\n \n=\n \nfalse\n,\n\n        \ndebug\n \n=\n \nfalse\n\n    \n],\n\n    \nami\n \n=\n \n[\n\n        \nserver\n \n=\n \n127.0.0.1\n,\n\n        \nport\n \n=\n \n5038\n,\n\n        \nusername\n \n=\n \n,\n\n        \npassword\n \n=\n \n\n    \n]\n\n\n]);\n\n\n\n\n\n\nMethods\n\n\nOnce setup, you call the class though its namespace to its method.\n\n\nCommand\n\n\nExecute ASM command.\n\n\nCall\n\n\n$result = $client-\nasterisk-\ncommand(\nsip show peers\n);\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nGet Queue\n\n\nConnect into AMI and issue asterisk command [queue show *].\n\n\nCall\n\n\n$result = $client-\nasterisk-\ngetQueue(\nfoo\n);\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nShow Channels\n\n\nConnect into AMI and issue asterisk command [core show channels].\n\n\nCall\n\n\n$result = $client-\nasterisk-\ncoreShowChannels();\n\n\n\n\n\nResponse\n\n\nArray\n(\n    \nactive_channels\n =\n 0,\n    \nactive_calls\n =\n 0,\n    \ncalls_processed\n =\n 0\n}\n\n\n\n\n\nAnd other methods see: \nvendor/asterisk/src/Asterisk.php\n\n\nTesting\n\n\nThere are no tests setup for this component.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nSecurity\n\n\nIf you discover any security related issues, please contact me via \nhttps://cherone.co.uk\n instead of using the issue tracker.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nDevelopment Encouragement\n\n\nIf you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed throughout the documentation and on each github repository, contact me at \nhttps://cherone.co.uk\n for further details.\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nSee \norganisations page\n for additional components.", 
             "title": "Asterisk"
         }, 
         {
-            "location": "/asterisk/#making-a-remote-call", 
-            "text": "WIP: To be updated with info on how to use this component, also add the tasks code.  ?php  require   vendor/autoload.php ;  /**   * Initialize plinker client.   *   * @param string $url to host   * @param string $component namespace of class to interface to   * @param string $public_key to authenticate on host   * @param string $private_key to authenticate on host   * @param string $config component construct config   */  $plink   =   new   Plinker\\Core\\Client ( \n     http://example.com , \n     Test\\Demo , \n     username , \n     password , \n     array ( \n         time   =   time () \n     )  );  echo   pre . print_r ( $plink - test (),   true ) . /pre ;   then the server part...  ?php  require   vendor/autoload.php ;  /**   * POST Server Part   */  if   ( $_SERVER [ REQUEST_METHOD ]   ==   POST )   { \n     $server   =   new   Plinker\\Core\\Server ( \n         $_POST , \n         username , \n         password \n     ); \n     exit ( $server - execute ());  }   See the  organisations page  for additional components.", 
-            "title": "Making a remote call."
+            "location": "/asterisk/#install", 
+            "text": "Require this package with composer using the following command:  $ composer require plinker/asterisk", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/asterisk/#client", 
+            "text": "Creating a client instance is done as follows:  ?php  require   vendor/autoload.php ;  /**   * Initialize plinker client.   *   * @param string $server - URL to server listener.   * @param string $config - server secret, and/or a additional component data   */  $client   =   new   \\Plinker\\Core\\Client ( \n     http://example.com/server.php , \n     [ \n         secret   =   a secret password , \n         database   =   [ \n             dsn   =   mysql:host=127.0.0.1;dbname=asterisk , \n             username   =   , \n             password   =   , \n             database   =   , \n             freeze   =   false , \n             debug   =   false \n         ], \n         ami   =   [ \n             server   =   127.0.0.1 , \n             port   =   5038 , \n             username   =   , \n             password   =   \n         ] \n     ]  );  // or using global function  $client   =   plinker_client ( http://example.com/server.php ,   a secret password ,   [ \n     database   =   [ \n         dsn   =   mysql:host=127.0.0.1;dbname=asterisk , \n         username   =   , \n         password   =   , \n         database   =   , \n         freeze   =   false , \n         debug   =   false \n     ], \n     ami   =   [ \n         server   =   127.0.0.1 , \n         port   =   5038 , \n         username   =   , \n         password   =   \n     ]  ]);", 
+            "title": "Client"
+        }, 
+        {
+            "location": "/asterisk/#methods", 
+            "text": "Once setup, you call the class though its namespace to its method.", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/asterisk/#command", 
+            "text": "Execute ASM command.  Call  $result = $client- asterisk- command( sip show peers );  Response", 
+            "title": "Command"
+        }, 
+        {
+            "location": "/asterisk/#get-queue", 
+            "text": "Connect into AMI and issue asterisk command [queue show *].  Call  $result = $client- asterisk- getQueue( foo );  Response", 
+            "title": "Get Queue"
+        }, 
+        {
+            "location": "/asterisk/#show-channels", 
+            "text": "Connect into AMI and issue asterisk command [core show channels].  Call  $result = $client- asterisk- coreShowChannels();  Response  Array\n(\n     active_channels  =  0,\n     active_calls  =  0,\n     calls_processed  =  0\n}  And other methods see:  vendor/asterisk/src/Asterisk.php", 
+            "title": "Show Channels"
+        }, 
+        {
+            "location": "/asterisk/#testing", 
+            "text": "There are no tests setup for this component.", 
+            "title": "Testing"
+        }, 
+        {
+            "location": "/asterisk/#contributing", 
+            "text": "Please see  CONTRIBUTING  for details.", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/asterisk/#security", 
+            "text": "If you discover any security related issues, please contact me via  https://cherone.co.uk  instead of using the issue tracker.", 
+            "title": "Security"
+        }, 
+        {
+            "location": "/asterisk/#credits", 
+            "text": "Lawrence Cherone  All Contributors", 
+            "title": "Credits"
+        }, 
+        {
+            "location": "/asterisk/#development-encouragement", 
+            "text": "If you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation  https://www.paypal.me/lcherone , thanks.", 
+            "title": "Development Encouragement"
+        }, 
+        {
+            "location": "/asterisk/#sponsors", 
+            "text": "Get your company or name listed throughout the documentation and on each github repository, contact me at  https://cherone.co.uk  for further details.", 
+            "title": "Sponsors"
+        }, 
+        {
+            "location": "/asterisk/#license", 
+            "text": "The MIT License (MIT). Please see  License File  for more information.  See  organisations page  for additional components.", 
+            "title": "License"
         }, 
         {
             "location": "/base91/", 
