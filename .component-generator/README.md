@@ -1,81 +1,24 @@
-## Composer Package Generator
+## Component Generator
 
 This very simple PHP script will generate the following structure, ready to start 
-creating your composer package.
+creating your component.
 
-     ┐
-     ├── src
-     ├── tests
-     │   ├── fixtures
-     │   ├── VendorPackageTest.php (generated based upon your namespace)
-     │   └── bootstrap.php
-     ├── .gitignore
-     ├── .scrutinizer.yml
-     ├── .styleci.yml
-     ├── .travis.yml
-     ├── CONTRIBUTING.md
-     ├── LICENSE
-     ├── phpunit.xml
-     ├── README.md
-     └── composer.json
-     
-
-## Install
-
-Git clone this project:
-
-``` bash
-$ git clone git@github.com:lcherone/composer-package-generator.git .
-```
-
-Don't forget to delete the `.git/` folder!
-
-
-## Generate your project files, like a boss!
-
-Open up and edit `setup.php`, enter your details in the following array:
-
-    /**
-     * Define the package settings
-     */
-    $package = [
-        'name' => 'vendor/package',
-        'title' => 'My Package',
-        'description' => 'This is my package, description.',
-        'type' => 'library',
-        'keywords' => [
-            'example', 'project', 'boilerplate', 'package'
-        ],
-        'homepage' => 'http://github.com/vendor/package',
-        'authors' => [
-            [
-                'name' => 'Your Name',
-                'email' => 'your-email@example.com',
-                'homepage' => 'http://github.com/vendor',
-                'role' => 'Owner'
-            ]
-        ],
-        'autoload' => [
-            'psr-4' => [
-                'Vendor\\Package\\' => 'src',
-            ]
-        ],
-        'autoload-dev' => [
-            'psr-4' => [
-                'Vendor\\Package\\Tests\\' => 'tests',
-            ]
-        ]
-    ];
-
-Once you edited the array, save the file and then run the following to generate 
-your project files:
-
-``` bash
-$ php setup.php
-```
-
-Examine the generated files and make your tweeks, especially the `README.md` which 
-your need to finish off. 
+    component ┐
+              ├── src
+              │   ├── Component.php
+              ├── tests
+              │   ├── fixtures
+              │   ├── ComponentTest.php
+              │   └── bootstrap.php
+              ├── .gitignore
+              ├── .scrutinizer.yml
+              ├── .styleci.yml
+              ├── .travis.yml
+              ├── CONTRIBUTING.md
+              ├── LICENSE
+              ├── phpunit.xml
+              ├── README.md
+              └── composer.json
 
 **Badges:**
 
@@ -90,15 +33,35 @@ once you push your project and enable the project on these 3rd party sites.
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/plinker-rpc/development/blob/master/.component-generator/CONTRIBUTING.md) for details.
 
 
 ## Credits
 
  - [Lawrence Cherone](http://github.com/lcherone)
- - [All Contributors](../../contributors)
+ - [All Contributors](https://github.com/plinker-rpc/development/graphs/contributors)
 
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+MIT License
+
+Copyright (c) 2018  
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
