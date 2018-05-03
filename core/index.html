@@ -247,6 +247,9 @@ $client = new \Plinker\Core\Client(
         'secret' =&gt; 'a secret password',
     ]
 );
+
+// or using global function
+$client = plinker_client('http://example.com/server.php', 'a secret password');
 </code></pre>
 <h2 id="server">Server</h2>
 <p>Creating a server listener is done as follows:</p>
