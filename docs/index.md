@@ -1,3 +1,5 @@
+title: Home
+description: PlinkerRPC PHP client/server makes it really easy to link and execute generic PHP components on remote systems, while maintaining the feel of a local method call.
 
 PlinkerRPC PHP client/server makes it really easy to link and execute generic PHP 
 components on remote systems, while maintaining the feel of a local method call.
@@ -25,9 +27,20 @@ it also contains bash scripts which will commit and do semantic versioning for e
  - `git clone git@github.com:plinker-rpc/development.git .`
  - `composer install`
 
+* [x] Lorem ipsum dolor sit amet, consectetur adipiscing elit
+* [x] Nulla lobortis egestas semper
+* [x] Curabitur elit nibh, euismod et ullamcorper at, iaculis feugiat est
+* [ ] Vestibulum convallis sit amet nisi a tincidunt
+    * [x] In hac habitasse platea dictumst
+    * [x] In scelerisque nibh non dolor mollis congue sed et metus
+    * [x] Sed egestas felis quis elit dapibus, ac aliquet turpis mattis
+    * [ ] Praesent sed risus massa
+* [ ] Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque
+* [ ] Nulla vel eros venenatis, imperdiet enim id, faucibus nisi
+
 **Committing changes:**
 
- - `./php-cs-fixer fix ./vendor/plinker --verbose --rules=@PSR2 --dry-run --diff`
+ - `#!js ./php-cs-fixer fix ./vendor/plinker --verbose --rules=@PSR2 --dry-run --diff`
  - `bash ./commit.sh "An informative commit message"`
 
 ## Development Encouragement

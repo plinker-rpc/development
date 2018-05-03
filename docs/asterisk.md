@@ -1,6 +1,9 @@
 **Plinker-RPC - Asterisk**
 =========
 
+!!! warning "No longer in development"
+    This component is no longer being developed.
+
 PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.
 
 An Asterisk component which hooks into the Asterisk Management Interface on remote systems.

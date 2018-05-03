@@ -42,7 +42,7 @@ function move_component_docs {
 }
 
 function deploy_github {
-    /usr/bin/mkdocs gh-deploy
+    sudo mkdocs gh-deploy
 
     rm site/ -Rf
 }

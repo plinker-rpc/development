@@ -70,6 +70,9 @@ commit() {
     if git diff-index --quiet HEAD --; then
         echo "- No changes, skipping."
     else
+        #run php-cs-fixer function
+        psrfix_code
+    
         echo "- Fetching current changes"
         git fetch --all
 
@@ -91,6 +94,12 @@ commit() {
 
         # update master
         git push origin master
+        
+        # deploy docs
+        sudo mkdocs gh-deploy
+
+        # deploy docs - remove site dir
+        sudo rm site/ -Rf
     fi
 }
 
@@ -102,6 +111,9 @@ deploy_tag() {
     if git diff-index --quiet HEAD -- ; then
         echo "- No changes, skipping."
     else
+        #run php-cs-fixer function
+        psrfix_code
+        
         echo "- Fetching tags"
         git fetch --tags
 
@@ -154,6 +166,12 @@ deploy_tag() {
         
         # pull latest
         git pull origin master
+        
+        # deploy docs
+        sudo mkdocs gh-deploy
+
+        # deploy docs - remove site dir
+        sudo rm site/ -Rf
     fi
 }
 
@@ -187,9 +205,6 @@ main() {
 
     # move into project workspace
     cd $projectDir
-    
-    # run php-cs-fixer function
-    psrfix_code
 
     # loop over project components
     for key in "${!components[@]}"
