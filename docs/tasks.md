@@ -1,7 +1,7 @@
 **Plinker-RPC - Tasks**
 =========
 
-Plinker PHP RPC client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.
+PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.
 
 The tasks component allows you to write code based tasks which are completed by a daemon, 
 this could allow you to create a single interface to control a cluster of servers tasks.
