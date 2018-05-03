@@ -30,10 +30,10 @@ function move_component_docs {
     do
         # check project folder exists
         if [ -d "$PWD/vendor/${components[$key]}" ]; then
-            if [ -f "$PWD/vendor/${components[$key]}/README.md" ]; then
-                \cp -r $PWD/vendor/${components[$key]}/README.md $PWD/docs/$key.md
+            if [ -f "$PWD/vendor/${components[$key]}/docs/index.md" ]; then
+                \cp -r $PWD/vendor/${components[$key]}/docs/index.md $PWD/docs/$key.md
             else
-                echo "- Skipping component, README.md does not exist: $PWD/vendor/${components[$key]}/README.md"
+                echo "- Skipping component, docs index does not exist: $PWD/vendor/${components[$key]}/docs/index.md"
             fi
         else
             echo "- Skipping component, directory does not exist: $PWD/vendor/${components[$key]}"

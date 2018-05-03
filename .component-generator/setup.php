@@ -17,6 +17,13 @@ if (!file_exists(TARGET_DIR.'/src')) {
 }
 
 /**
+ * Create docs directory
+ */
+if (!file_exists(TARGET_DIR.'/src')) {
+    mkdir(TARGET_DIR.'/docs', 0755, true);
+}
+
+/**
  * Create [tests|fixtures] directory
  */
 if (!file_exists(TARGET_DIR.'/tests/fixtures')) {
@@ -68,6 +75,9 @@ process_file('README.md', [
     'description' => $package['description'],
     'authors' => implode(PHP_EOL, $authors)
 ]);
+
+// copy readme.md to docs
+copy(SOURCE_DIR.'/README.md', TARGET_DIR.'/docs/index.md');
 
 //
 $namespace = rtrim(array_search('src', $package['autoload']['psr-4']), '\\');
