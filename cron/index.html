@@ -331,6 +331,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#component-config" title="Component Config" class="md-nav__link">
+    Component Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#methods" title="Methods" class="md-nav__link">
     Methods
   </a>
@@ -339,8 +346,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#user" title="User" class="md-nav__link">
+    User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#crontab" title="Crontab" class="md-nav__link">
     Crontab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump" title="Dump" class="md-nav__link">
+    Dump
   </a>
   
 </li>
@@ -367,13 +388,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#read" title="Read" class="md-nav__link">
-    Read
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#delete" title="Delete" class="md-nav__link">
     Delete
   </a>
@@ -383,13 +397,6 @@
           <li class="md-nav__item">
   <a href="#drop" title="Drop" class="md-nav__link">
     Drop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dump" title="Dump" class="md-nav__link">
-    Dump
   </a>
   
 </li>
@@ -603,6 +610,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#component-config" title="Component Config" class="md-nav__link">
+    Component Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#methods" title="Methods" class="md-nav__link">
     Methods
   </a>
@@ -611,8 +625,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#user" title="User" class="md-nav__link">
+    User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#crontab" title="Crontab" class="md-nav__link">
     Crontab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump" title="Dump" class="md-nav__link">
+    Dump
   </a>
   
 </li>
@@ -639,13 +667,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#read" title="Read" class="md-nav__link">
-    Read
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#delete" title="Delete" class="md-nav__link">
     Delete
   </a>
@@ -655,13 +676,6 @@
           <li class="md-nav__item">
   <a href="#drop" title="Drop" class="md-nav__link">
     Drop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dump" title="Dump" class="md-nav__link">
-    Dump
   </a>
   
 </li>
@@ -772,50 +786,110 @@
 <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Plinker\Core\Client</span><span class="p">(</span>
     <span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span>
     <span class="p">[</span>
-        <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;a secret password&#39;</span>
+        <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">,</span>
+        <span class="c1">// optional</span>
+        <span class="s1">&#39;config&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;journal&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;./.plinker/crontab.journal&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;apply&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span>
+        <span class="p">]</span>
     <span class="p">]</span>
 <span class="p">);</span>
 
-<span class="c1">// or using global function</span>
-<span class="nv">$client</span> <span class="o">=</span> <span class="nx">plinker_client</span><span class="p">(</span><span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">);</span>
+<span class="c1">// or using global function, with optional array</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">plinker_client</span><span class="p">(</span><span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;config&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;journal&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;./.plinker/crontab.journal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;apply&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span>
+    <span class="p">]</span>
+<span class="p">]);</span>
 </pre></div>
 
 
+<h2 id="component-config">Component Config<a class="headerlink" href="#component-config" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>journal</td>
+<td>Path to journal file</td>
+<td><code class="codehilite">./.plinker/crontab.journal</code></td>
+</tr>
+<tr>
+<td>apply</td>
+<td>Apply crontab after each call, the default is to only apply upon calling the <code class="codehilite">apply()</code> method</td>
+<td><code class="codehilite">false</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <p>Once setup, you call the class though its namespace to its method.</p>
+<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
+<p>Get current user, helps to debug which user the crontab is owned by.</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;user();</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span>www-data
+</pre></div>
+
+
 <h3 id="crontab">Crontab<a class="headerlink" href="#crontab" title="Permanent link">&para;</a></h3>
-<p>Get crontab as-is.</p>
+<p>Get current crontab, equivalent to <code class="codehilite">crontab -l</code>.</p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;crontab();</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
+<div class="codehilite"><pre><span></span># My Cron Task
+0 * * * * cd ~
+# \My Cron Task
+</pre></div>
+
+
+<h3 id="dump">Dump<a class="headerlink" href="#dump" title="Permanent link">&para;</a></h3>
+<p>Get current crontab journal. The journal is a file which get built and then applied to the real crontab.</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;dump();</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span># My Cron Task
+0 * * * * cd ~
+# \My Cron Task
 </pre></div>
 
 
 <h3 id="create">Create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p>Create a crontask.</p>
+<p>Create a crontask entry. Note one entry per key, multiple calls with same key would simply update.</p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;create(&#39;My Cron Task&#39;, &#39;* * * * * cd ~&#39;);</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>encode this string
+<div class="codehilite"><pre><span></span>
 </pre></div>
 
 
 <h3 id="get">Get<a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
-<p>Get a crontask.</p>
+<p>Get a crontask entry, also has an alias method read.</p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;get(&#39;My Cron Task&#39;);</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
+<div class="codehilite"><pre><span></span>0 * * * * cd ~
 </pre></div>
 
 
@@ -823,18 +897,6 @@
 <p>Update cron task.</p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;update(&#39;My Cron Task&#39;, &#39;0 * * * * cd ~&#39;);</span>
-</pre></div>
-
-
-<p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
-</pre></div>
-
-
-<h3 id="read">Read<a class="headerlink" href="#read" title="Permanent link">&para;</a></h3>
-<p>Read a cron task.</p>
-<p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;read(&#39;My Cron Task&#39;);</span>
 </pre></div>
 
 
@@ -856,7 +918,7 @@
 
 
 <h3 id="drop">Drop<a class="headerlink" href="#drop" title="Permanent link">&para;</a></h3>
-<p>Drop cron task journal.</p>
+<p>Drop cron task journal (delete all, but does not apply it).</p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result =  $client-&gt;cron-&gt;drop();</span>
 </pre></div>
@@ -867,20 +929,8 @@
 </pre></div>
 
 
-<h3 id="dump">Dump<a class="headerlink" href="#dump" title="Permanent link">&para;</a></h3>
-<p>Return current crontab as plain text.</p>
-<p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;dump();</span>
-</pre></div>
-
-
-<p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
-</pre></div>
-
-
 <h3 id="apply">Apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
-<p>Apply crontab.</p>
+<p>Apply crontab journal to users crontab.</p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;apply();</span>
 </pre></div>
