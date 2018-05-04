@@ -372,8 +372,108 @@
         }, 
         {
             "location": "/files/", 
-            "text": "PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.\n\n\nA files component which allows you to read and write files.\n\n\nComposer\n\n\n{\n    \nrequire\n: {\n        \nplinker/files\n: \n=v0.1\n\n    }\n}\n\n\n\n\n\nMaking remote calls.\n\n\n?php\n\n\nrequire\n \n../../vendor/autoload.php\n;\n\n\n\ntry\n \n{\n\n\n    \n/**\n\n\n     * Plinker Config\n\n\n     */\n\n    \n$config\n \n=\n \n[\n\n        \n// plinker connection | using tasks as to write in the correct .sqlite file\n\n        \nplinker\n \n=\n \n[\n\n            \nendpoint\n \n=\n \nhttp://127.0.0.1/examples/cron/server.php\n,\n\n            \npublic_key\n  \n=\n \nmakeSomethingUp\n,\n\n            \nprivate_key\n \n=\n \nagainMakeSomethingUp\n\n        \n],\n\n\n        \n// optional config\n\n        \nconfig\n \n=\n \n[\n\n            \njournal\n \n=\n \n./crontab.journal\n,\n\n            \napply\n   \n=\n \nfalse\n\n        \n]\n\n    \n];\n\n\n    \n// init plinker endpoint client\n\n    \n$cron\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n        \n// where is the plinker server\n\n        \n$config\n[\nplinker\n][\nendpoint\n],\n\n\n        \n// component namespace to interface to\n\n        \nFiles\\Manager\n,\n\n\n        \n// keys\n\n        \n$config\n[\nplinker\n][\npublic_key\n],\n\n        \n$config\n[\nplinker\n][\nprivate_key\n],\n\n\n        \n// construct array which you pass to the component\n\n        \n$config\n[\nconfig\n]\n\n    \n);\n\n\n    \n// todo!\n\n\n\n}\n \ncatch\n \n(\n\\Exception\n \n$e\n)\n \n{\n\n    \nexit\n(\nget_class\n(\n$e\n)\n.\n: \n.\n$e\n-\ngetMessage\n());\n\n\n}\n\n\n\n\n\n\nthen the server part...\n\n\n?php\n\n\nrequire\n \n../../vendor/autoload.php\n;\n\n\n\n/**\n\n\n * Its POST..\n\n\n */\n\n\nif\n \n(\n$_SERVER\n[\nREQUEST_METHOD\n]\n \n==\n \nPOST\n)\n \n{\n\n\n    \n/**\n\n\n     * Its Plinker!\n\n\n     */\n\n    \nif\n \n(\nisset\n(\n$_SERVER\n[\nHTTP_PLINKER\n]))\n \n{\n\n        \n// test its encrypted\n\n        \nfile_put_contents\n(\n./.plinker/encryption-proof.txt\n,\n \nprint_r\n(\n$_POST\n,\n \ntrue\n));\n\n\n        \n/**\n\n\n         * Define Plinker Config\n\n\n         */\n\n        \n$plinker\n \n=\n \n[\n\n            \npublic_key\n  \n=\n \nmakeSomethingUp\n,\n\n            \nprivate_key\n \n=\n \nagainMakeSomethingUp\n,\n\n            \n// optional config\n\n            \n/*\nconfig\n =\n [\n\n\n                // allowed ips, restrict access by ip\n\n\n                \nallowed_ips\n =\n [\n\n\n                    \n127.0.0.1\n\n\n                ]\n\n\n            ]*/\n\n        \n];\n\n\n        \n// init plinker server\n\n        \n$server\n \n=\n \nnew\n \n\\Plinker\\Core\\Server\n(\n\n            \n$_POST\n,\n\n            \n$plinker\n[\npublic_key\n],\n\n            \n$plinker\n[\nprivate_key\n],\n\n            \n(\narray\n)\n \n@\n$plinker\n[\nconfig\n]\n\n        \n);\n\n\n        \nexit\n(\n$server\n-\nexecute\n());\n\n    \n}\n\n\n}\n\n\n\n\n\n\nSee the \norganisations page\n for additional components.", 
+            "text": "Files\n\n\nA files component which allows you to read and write files.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/files\n\n\n\n\n\nClient\n\n\nCreating a client instance is done as follows:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * Initialize plinker client.\n\n\n *\n\n\n * @param string $server - URL to server listener.\n\n\n * @param string $config - server secret, and/or a additional component data\n\n\n */\n\n\n$client\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n    \nhttp://example.com/server.php\n,\n\n    \n[\n\n        \nsecret\n \n=\n \na secret password\n\n    \n]\n\n\n);\n\n\n\n// or using global function, with optional array\n\n\n$client\n \n=\n \nplinker_client\n(\nhttp://example.com/server.php\n,\n \na secret password\n);\n\n\n\n\n\n\nMethods\n\n\nOnce setup, you call the class though its namespace to its method.\n\n\nUser\n\n\nGet current user, helps to debug which user the crontab is owned by.\n\n\nCall\n\n\n$result = $client-\ncron-\nuser();\n\n\n\n\n\n\nResponse\n\n\nwww-data\n\n\n\n\n\nCrontab\n\n\nGet current crontab, equivalent to \ncrontab -l\n.\n\n\nCall\n\n\n$result = $client-\ncron-\ncrontab();\n\n\n\n\n\n\nResponse\n\n\n# My Cron Task\n0 * * * * cd ~\n# \\My Cron Task\n\n\n\n\n\nDump\n\n\nGet current crontab journal. The journal is a file which gets built and then applied to the real crontab.\n\n\nCall\n\n\n$result = $client-\ncron-\ndump();\n\n\n\n\n\n\nResponse\n\n\n# My Cron Task\n0 * * * * cd ~\n# \\My Cron Task\n\n\n\n\n\nCreate\n\n\nCreate a crontask entry. Note one entry per key, multiple calls with same key would simply update.\n\n\nCall\n\n\n$result = $client-\ncron-\ncreate(\nMy Cron Task\n, \n* * * * * cd ~\n);\n\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nGet\n\n\nGet a crontask entry, also has an alias method read.\n\n\nCall\n\n\n$result = $client-\ncron-\nget(\nMy Cron Task\n);\n\n\n\n\n\n\nResponse\n\n\n0 * * * * cd ~\n\n\n\n\n\nUpdate\n\n\nUpdate cron task.\n\n\nCall\n\n\n$result = $client-\ncron-\nupdate(\nMy Cron Task\n, \n0 * * * * cd ~\n);\n\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nDelete\n\n\nDelete a cron task.\n\n\nCall\n\n\n$result = $client-\ncron-\ndelete(\nMy Cron Task\n);\n\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nDrop\n\n\nDrop cron task journal (delete all, but does not apply it).\n\n\nCall\n\n\n$result =  $client-\ncron-\ndrop();\n\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nApply\n\n\nApply crontab journal to users crontab.\n\n\nCall\n\n\n$result = $client-\ncron-\napply();\n\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nTesting\n\n\nThere are no tests setup for this component.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nSecurity\n\n\nIf you discover any security related issues, please contact me via \nhttps://cherone.co.uk\n instead of using the issue tracker.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nDevelopment Encouragement\n\n\nIf you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed throughout the documentation and on each github repository, contact me at \nhttps://cherone.co.uk\n for further details.\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nSee the \norganisations page\n for additional components.\n\n\nPlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.\n\n\nA files component which allows you to read and write files.\n\n\nComposer\n\n\n{\n    \nrequire\n: {\n        \nplinker/files\n: \n=v0.1\n\n    }\n}\n\n\n\n\n\nMaking remote calls.\n\n\n?php\n\n\nrequire\n \n../../vendor/autoload.php\n;\n\n\n\ntry\n \n{\n\n\n    \n/**\n\n\n     * Plinker Config\n\n\n     */\n\n    \n$config\n \n=\n \n[\n\n        \n// plinker connection | using tasks as to write in the correct .sqlite file\n\n        \nplinker\n \n=\n \n[\n\n            \nendpoint\n \n=\n \nhttp://127.0.0.1/examples/cron/server.php\n,\n\n            \npublic_key\n  \n=\n \nmakeSomethingUp\n,\n\n            \nprivate_key\n \n=\n \nagainMakeSomethingUp\n\n        \n],\n\n\n        \n// optional config\n\n        \nconfig\n \n=\n \n[\n\n            \njournal\n \n=\n \n./crontab.journal\n,\n\n            \napply\n   \n=\n \nfalse\n\n        \n]\n\n    \n];\n\n\n    \n// init plinker endpoint client\n\n    \n$cron\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n        \n// where is the plinker server\n\n        \n$config\n[\nplinker\n][\nendpoint\n],\n\n\n        \n// component namespace to interface to\n\n        \nFiles\\Manager\n,\n\n\n        \n// keys\n\n        \n$config\n[\nplinker\n][\npublic_key\n],\n\n        \n$config\n[\nplinker\n][\nprivate_key\n],\n\n\n        \n// construct array which you pass to the component\n\n        \n$config\n[\nconfig\n]\n\n    \n);\n\n\n    \n// todo!\n\n\n\n}\n \ncatch\n \n(\n\\Exception\n \n$e\n)\n \n{\n\n    \nexit\n(\nget_class\n(\n$e\n)\n.\n: \n.\n$e\n-\ngetMessage\n());\n\n\n}\n\n\n\n\n\n\nthen the server part...\n\n\n?php\n\n\nrequire\n \n../../vendor/autoload.php\n;\n\n\n\n/**\n\n\n * Its POST..\n\n\n */\n\n\nif\n \n(\n$_SERVER\n[\nREQUEST_METHOD\n]\n \n==\n \nPOST\n)\n \n{\n\n\n    \n/**\n\n\n     * Its Plinker!\n\n\n     */\n\n    \nif\n \n(\nisset\n(\n$_SERVER\n[\nHTTP_PLINKER\n]))\n \n{\n\n        \n// test its encrypted\n\n        \nfile_put_contents\n(\n./.plinker/encryption-proof.txt\n,\n \nprint_r\n(\n$_POST\n,\n \ntrue\n));\n\n\n        \n/**\n\n\n         * Define Plinker Config\n\n\n         */\n\n        \n$plinker\n \n=\n \n[\n\n            \npublic_key\n  \n=\n \nmakeSomethingUp\n,\n\n            \nprivate_key\n \n=\n \nagainMakeSomethingUp\n,\n\n            \n// optional config\n\n            \n/*\nconfig\n =\n [\n\n\n                // allowed ips, restrict access by ip\n\n\n                \nallowed_ips\n =\n [\n\n\n                    \n127.0.0.1\n\n\n                ]\n\n\n            ]*/\n\n        \n];\n\n\n        \n// init plinker server\n\n        \n$server\n \n=\n \nnew\n \n\\Plinker\\Core\\Server\n(\n\n            \n$_POST\n,\n\n            \n$plinker\n[\npublic_key\n],\n\n            \n$plinker\n[\nprivate_key\n],\n\n            \n(\narray\n)\n \n@\n$plinker\n[\nconfig\n]\n\n        \n);\n\n\n        \nexit\n(\n$server\n-\nexecute\n());\n\n    \n}\n\n\n}\n\n\n\n\n\n\nSee the \norganisations page\n for additional components.", 
             "title": "Files"
+        }, 
+        {
+            "location": "/files/#files", 
+            "text": "A files component which allows you to read and write files.", 
+            "title": "Files"
+        }, 
+        {
+            "location": "/files/#install", 
+            "text": "Require this package with composer using the following command:  $ composer require plinker/files", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/files/#client", 
+            "text": "Creating a client instance is done as follows:  ?php  require   vendor/autoload.php ;  /**   * Initialize plinker client.   *   * @param string $server - URL to server listener.   * @param string $config - server secret, and/or a additional component data   */  $client   =   new   \\Plinker\\Core\\Client ( \n     http://example.com/server.php , \n     [ \n         secret   =   a secret password \n     ]  );  // or using global function, with optional array  $client   =   plinker_client ( http://example.com/server.php ,   a secret password );", 
+            "title": "Client"
+        }, 
+        {
+            "location": "/files/#methods", 
+            "text": "Once setup, you call the class though its namespace to its method.", 
+            "title": "Methods"
+        }, 
+        {
+            "location": "/files/#user", 
+            "text": "Get current user, helps to debug which user the crontab is owned by.  Call  $result = $client- cron- user();   Response  www-data", 
+            "title": "User"
+        }, 
+        {
+            "location": "/files/#crontab", 
+            "text": "Get current crontab, equivalent to  crontab -l .  Call  $result = $client- cron- crontab();   Response  # My Cron Task\n0 * * * * cd ~\n# \\My Cron Task", 
+            "title": "Crontab"
+        }, 
+        {
+            "location": "/files/#dump", 
+            "text": "Get current crontab journal. The journal is a file which gets built and then applied to the real crontab.  Call  $result = $client- cron- dump();   Response  # My Cron Task\n0 * * * * cd ~\n# \\My Cron Task", 
+            "title": "Dump"
+        }, 
+        {
+            "location": "/files/#create", 
+            "text": "Create a crontask entry. Note one entry per key, multiple calls with same key would simply update.  Call  $result = $client- cron- create( My Cron Task ,  * * * * * cd ~ );   Response", 
+            "title": "Create"
+        }, 
+        {
+            "location": "/files/#get", 
+            "text": "Get a crontask entry, also has an alias method read.  Call  $result = $client- cron- get( My Cron Task );   Response  0 * * * * cd ~", 
+            "title": "Get"
+        }, 
+        {
+            "location": "/files/#update", 
+            "text": "Update cron task.  Call  $result = $client- cron- update( My Cron Task ,  0 * * * * cd ~ );   Response", 
+            "title": "Update"
+        }, 
+        {
+            "location": "/files/#delete", 
+            "text": "Delete a cron task.  Call  $result = $client- cron- delete( My Cron Task );   Response", 
+            "title": "Delete"
+        }, 
+        {
+            "location": "/files/#drop", 
+            "text": "Drop cron task journal (delete all, but does not apply it).  Call  $result =  $client- cron- drop();   Response", 
+            "title": "Drop"
+        }, 
+        {
+            "location": "/files/#apply", 
+            "text": "Apply crontab journal to users crontab.  Call  $result = $client- cron- apply();   Response", 
+            "title": "Apply"
+        }, 
+        {
+            "location": "/files/#testing", 
+            "text": "There are no tests setup for this component.", 
+            "title": "Testing"
+        }, 
+        {
+            "location": "/files/#contributing", 
+            "text": "Please see  CONTRIBUTING  for details.", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/files/#security", 
+            "text": "If you discover any security related issues, please contact me via  https://cherone.co.uk  instead of using the issue tracker.", 
+            "title": "Security"
+        }, 
+        {
+            "location": "/files/#credits", 
+            "text": "Lawrence Cherone  All Contributors", 
+            "title": "Credits"
+        }, 
+        {
+            "location": "/files/#development-encouragement", 
+            "text": "If you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation  https://www.paypal.me/lcherone , thanks.", 
+            "title": "Development Encouragement"
+        }, 
+        {
+            "location": "/files/#sponsors", 
+            "text": "Get your company or name listed throughout the documentation and on each github repository, contact me at  https://cherone.co.uk  for further details.", 
+            "title": "Sponsors"
+        }, 
+        {
+            "location": "/files/#license", 
+            "text": "The MIT License (MIT). Please see  License File  for more information.  See the  organisations page  for additional components.  PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.  A files component which allows you to read and write files.  Composer  {\n     require : {\n         plinker/files :  =v0.1 \n    }\n}", 
+            "title": "License"
         }, 
         {
             "location": "/files/#making-remote-calls", 
