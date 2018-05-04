@@ -351,64 +351,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#user" title="User" class="md-nav__link">
-    User
+  <a href="#list" title="List" class="md-nav__link">
+    List
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#crontab" title="Crontab" class="md-nav__link">
-    Crontab
+  <a href="#create-file" title="Create File" class="md-nav__link">
+    Create File
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dump" title="Dump" class="md-nav__link">
-    Dump
+  <a href="#get-file" title="Get File" class="md-nav__link">
+    Get File
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#create" title="Create" class="md-nav__link">
-    Create
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get" title="Get" class="md-nav__link">
-    Get
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" title="Update" class="md-nav__link">
-    Update
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" title="Delete" class="md-nav__link">
-    Delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#drop" title="Drop" class="md-nav__link">
-    Drop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apply" title="Apply" class="md-nav__link">
-    Apply
+  <a href="#delete-file" title="Delete File" class="md-nav__link">
+    Delete File
   </a>
   
 </li>
@@ -463,13 +428,6 @@
         <li class="md-nav__item">
   <a href="#license" title="License" class="md-nav__link">
     License
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#making-remote-calls" title="Making remote calls." class="md-nav__link">
-    Making remote calls.
   </a>
   
 </li>
@@ -618,64 +576,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#user" title="User" class="md-nav__link">
-    User
+  <a href="#list" title="List" class="md-nav__link">
+    List
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#crontab" title="Crontab" class="md-nav__link">
-    Crontab
+  <a href="#create-file" title="Create File" class="md-nav__link">
+    Create File
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dump" title="Dump" class="md-nav__link">
-    Dump
+  <a href="#get-file" title="Get File" class="md-nav__link">
+    Get File
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#create" title="Create" class="md-nav__link">
-    Create
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get" title="Get" class="md-nav__link">
-    Get
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" title="Update" class="md-nav__link">
-    Update
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete" title="Delete" class="md-nav__link">
-    Delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#drop" title="Drop" class="md-nav__link">
-    Drop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apply" title="Apply" class="md-nav__link">
-    Apply
+  <a href="#delete-file" title="Delete File" class="md-nav__link">
+    Delete File
   </a>
   
 </li>
@@ -730,13 +653,6 @@
         <li class="md-nav__item">
   <a href="#license" title="License" class="md-nav__link">
     License
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#making-remote-calls" title="Making remote calls." class="md-nav__link">
-    Making remote calls.
   </a>
   
 </li>
@@ -797,110 +713,170 @@
 
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <p>Once setup, you call the class though its namespace to its method.</p>
-<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
-<p>Get current user, helps to debug which user the crontab is owned by.</p>
+<h3 id="list">List<a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
+<p>List files and folders.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dir</td>
+<td>string</td>
+<td>Base paste to list files and folders from</td>
+<td><code class="codehilite">./</code></td>
+</tr>
+<tr>
+<td>extended</td>
+<td>bool</td>
+<td>Return extended fileinfo</td>
+<td><code class="codehilite">false</code></td>
+</tr>
+<tr>
+<td>depth</td>
+<td>int</td>
+<td>Iterator depth</td>
+<td><code class="codehilite">10</code></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;user();</span>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;list(&#39;./&#39;, false, 10);</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>www-data
+<div class="codehilite"><pre><span></span>Array
+(
+    [/] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [name] =&gt; server.php
+                    [type] =&gt; file
+                    [size] =&gt; 706
+                )
+
+            [1] =&gt; Array
+                (
+                    [name] =&gt; .plinker
+                    [type] =&gt; folder
+                    [size] =&gt; 4096
+                )
+
+            [3] =&gt; Array
+                (
+                    [name] =&gt; user_classes
+                    [type] =&gt; folder
+                    [size] =&gt; 4096
+                )
+
+            [5] =&gt; Array
+                (
+                    [name] =&gt; demo.php
+                    [type] =&gt; file
+                    [size] =&gt; 1628
+                )
+
+        )
+
+    [/.plinker] =&gt; Array
+        (
+            [2] =&gt; Array
+                (
+                    [name] =&gt; crontab.journal
+                    [type] =&gt; file
+                    [size] =&gt; 45
+                )
+
+        )
+
+    [/user_classes] =&gt; Array
+        (
+            [4] =&gt; Array
+                (
+                    [name] =&gt; demo.php
+                    [type] =&gt; file
+                    [size] =&gt; 345
+                )
+
+        )
+
+)
 </pre></div>
 
 
-<h3 id="crontab">Crontab<a class="headerlink" href="#crontab" title="Permanent link">&para;</a></h3>
-<p>Get current crontab, equivalent to <code class="codehilite">crontab -l</code>.</p>
+<p><strong>Response (with extended true)</strong></p>
+<div class="codehilite"><pre><span></span>Array
+(
+    [/] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [name] =&gt; server.php
+                    [type] =&gt; file
+                    [size] =&gt; 706
+                    [info] =&gt; Array
+                        (
+                            [last_access] =&gt; 1525369379
+                            [change_time] =&gt; 1525368118
+                            [modified_time] =&gt; 1517173011
+                            [basename] =&gt; server.php
+                            [extension] =&gt; php
+                            [filename] =&gt; server.php
+                            [group] =&gt; 33
+                            [owner] =&gt; 33
+                            [inode] =&gt; 3894233
+                            [path] =&gt; .
+                            [pathname] =&gt; ./server.php
+                            [size] =&gt; 706
+                            [type] =&gt; file
+                            [isDir] =&gt; 
+                            [isExecutable] =&gt; 
+                            [isFile] =&gt; 1
+                            [isLink] =&gt; 
+                            [readable] =&gt; 1
+                            [writable] =&gt; 1
+                        )
+
+                )
+    // snip..
+</pre></div>
+
+
+<h3 id="create-file">Create File<a class="headerlink" href="#create-file" title="Permanent link">&para;</a></h3>
+<p>Create a file.</p>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;crontab();</span>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;createFile(&#39;./path/to/file.txt&#39;, &#39;the file contents&#39;);</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span># My Cron Task
-0 * * * * cd ~
-# \My Cron Task
+<div class="codehilite"><pre><span></span>number of bytes written to file
 </pre></div>
 
 
-<h3 id="dump">Dump<a class="headerlink" href="#dump" title="Permanent link">&para;</a></h3>
-<p>Get current crontab journal. The journal is a file which gets built and then applied to the real crontab.</p>
+<h3 id="get-file">Get File<a class="headerlink" href="#get-file" title="Permanent link">&para;</a></h3>
+<p>Get a file.</p>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;dump();</span>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;getFile(&#39;./path/to/file.txt&#39;);</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span># My Cron Task
-0 * * * * cd ~
-# \My Cron Task
+<div class="codehilite"><pre><span></span>the file contents
 </pre></div>
 
 
-<h3 id="create">Create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p>Create a crontask entry. Note one entry per key, multiple calls with same key would simply update.</p>
+<h3 id="delete-file">Delete File<a class="headerlink" href="#delete-file" title="Permanent link">&para;</a></h3>
+<p>Delete a file.</p>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;create(&#39;My Cron Task&#39;, &#39;* * * * * cd ~&#39;);</span>
-</pre></div>
-
-
-<p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
-</pre></div>
-
-
-<h3 id="get">Get<a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
-<p>Get a crontask entry, also has an alias method read.</p>
-<p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;get(&#39;My Cron Task&#39;);</span>
-</pre></div>
-
-
-<p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>0 * * * * cd ~
-</pre></div>
-
-
-<h3 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
-<p>Update cron task.</p>
-<p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;update(&#39;My Cron Task&#39;, &#39;0 * * * * cd ~&#39;);</span>
-</pre></div>
-
-
-<p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
-</pre></div>
-
-
-<h3 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h3>
-<p>Delete a cron task.</p>
-<p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;delete(&#39;My Cron Task&#39;);</span>
-</pre></div>
-
-
-<p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
-</pre></div>
-
-
-<h3 id="drop">Drop<a class="headerlink" href="#drop" title="Permanent link">&para;</a></h3>
-<p>Drop cron task journal (delete all, but does not apply it).</p>
-<p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result =  $client-&gt;cron-&gt;drop();</span>
-</pre></div>
-
-
-<p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
-</pre></div>
-
-
-<h3 id="apply">Apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
-<p>Apply crontab journal to users crontab.</p>
-<p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;cron-&gt;apply();</span>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;deleteFile(&#39;./path/to/file.txt&#39;);</span>
 </pre></div>
 
 
@@ -927,111 +903,6 @@ please feel free to make a donation <a href="https://www.paypal.me/lcherone">htt
 <p>Get your company or name listed throughout the documentation and on each github repository, contact me at <a href="https://cherone.co.uk">https://cherone.co.uk</a> for further details.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>The MIT License (MIT). Please see <a href="https://github.com/plinker-rpc/files/blob/master/LICENSE">License File</a> for more information.</p>
-<p>See the <a href="https://github.com/plinker-rpc">organisations page</a> for additional components.</p>
-<p>PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.</p>
-<p>A files component which allows you to read and write files.</p>
-<p><strong>Composer</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;require&quot;: {
-        &quot;plinker/files&quot;: &quot;&gt;=v0.1&quot;
-    }
-}
-</pre></div>
-
-
-<h2 id="making-remote-calls">Making remote calls.<a class="headerlink" href="#making-remote-calls" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="k">require</span> <span class="s1">&#39;../../vendor/autoload.php&#39;</span><span class="p">;</span>
-
-<span class="k">try</span> <span class="p">{</span>
-
-    <span class="sd">/**</span>
-<span class="sd">     * Plinker Config</span>
-<span class="sd">     */</span>
-    <span class="nv">$config</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="c1">// plinker connection | using tasks as to write in the correct .sqlite file</span>
-        <span class="s1">&#39;plinker&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="s1">&#39;endpoint&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://127.0.0.1/examples/cron/server.php&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;public_key&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;makeSomethingUp&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;private_key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;againMakeSomethingUp&#39;</span>
-        <span class="p">],</span>
-
-        <span class="c1">// optional config</span>
-        <span class="s1">&#39;config&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="s1">&#39;journal&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;./crontab.journal&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;apply&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span>
-        <span class="p">]</span>
-    <span class="p">];</span>
-
-    <span class="c1">// init plinker endpoint client</span>
-    <span class="nv">$cron</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Plinker\Core\Client</span><span class="p">(</span>
-        <span class="c1">// where is the plinker server</span>
-        <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;plinker&#39;</span><span class="p">][</span><span class="s1">&#39;endpoint&#39;</span><span class="p">],</span>
-
-        <span class="c1">// component namespace to interface to</span>
-        <span class="s1">&#39;Files\Manager&#39;</span><span class="p">,</span>
-
-        <span class="c1">// keys</span>
-        <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;plinker&#39;</span><span class="p">][</span><span class="s1">&#39;public_key&#39;</span><span class="p">],</span>
-        <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;plinker&#39;</span><span class="p">][</span><span class="s1">&#39;private_key&#39;</span><span class="p">],</span>
-
-        <span class="c1">// construct array which you pass to the component</span>
-        <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span>
-    <span class="p">);</span>
-
-    <span class="c1">// todo!</span>
-
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">exit</span><span class="p">(</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$e</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;: &#39;</span><span class="o">.</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p><strong>then the server part...</strong></p>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-<span class="k">require</span> <span class="s1">&#39;../../vendor/autoload.php&#39;</span><span class="p">;</span>
-
-<span class="sd">/**</span>
-<span class="sd"> * Its POST..</span>
-<span class="sd"> */</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="sd">/**</span>
-<span class="sd">     * Its Plinker!</span>
-<span class="sd">     */</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_PLINKER&#39;</span><span class="p">]))</span> <span class="p">{</span>
-        <span class="c1">// test its encrypted</span>
-        <span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">&#39;./.plinker/encryption-proof.txt&#39;</span><span class="p">,</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">,</span> <span class="k">true</span><span class="p">));</span>
-
-        <span class="sd">/**</span>
-<span class="sd">         * Define Plinker Config</span>
-<span class="sd">         */</span>
-        <span class="nv">$plinker</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;public_key&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;makeSomethingUp&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;private_key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;againMakeSomethingUp&#39;</span><span class="p">,</span>
-            <span class="c1">// optional config</span>
-            <span class="cm">/*&#39;config&#39; =&gt; [</span>
-<span class="cm">                // allowed ips, restrict access by ip</span>
-<span class="cm">                &#39;allowed_ips&#39; =&gt; [</span>
-<span class="cm">                    &#39;127.0.0.1&#39;</span>
-<span class="cm">                ]</span>
-<span class="cm">            ]*/</span>
-        <span class="p">];</span>
-
-        <span class="c1">// init plinker server</span>
-        <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Plinker\Core\Server</span><span class="p">(</span>
-            <span class="nv">$_POST</span><span class="p">,</span>
-            <span class="nv">$plinker</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">],</span>
-            <span class="nv">$plinker</span><span class="p">[</span><span class="s1">&#39;private_key&#39;</span><span class="p">],</span>
-            <span class="p">(</span><span class="k">array</span><span class="p">)</span> <span class="o">@</span><span class="nv">$plinker</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span>
-        <span class="p">);</span>
-
-        <span class="k">exit</span><span class="p">(</span><span class="nv">$server</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">());</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
 <p>See the <a href="https://github.com/plinker-rpc">organisations page</a> for additional components.</p>
                 
                   
