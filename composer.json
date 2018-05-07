@@ -8,6 +8,7 @@
     "require": {
         "plinker/asterisk": "master",
         "plinker/base91": "master",
+        "plinker/files": "master",
         "plinker/core": "master",
         "plinker/cron": "master",
         "plinker/lxc": "master",

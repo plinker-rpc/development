@@ -19,14 +19,8 @@ $client = plinker_client('http://10.158.250.158/examples/core/server.php', 'a se
 ]);
 
 try {
-    debug('', $client->test->this(), '');
-    debug('', $client->test->config(), '');
-    debug('', $client->test->an_array(), '');
-    debug('', $client->test->closure()('foo'), '');
-    debug('', $client->test->date(), '');
-    debug('', $client->test->my_ip(), '');
-    debug('', $client->test->your_ip(), '');
-
+    debug('$client->files->list()', $client->files->list('./', true, 1), 'Get files');
+    
 } catch (\Exception $e) {
     exit(get_class($e).': '.$e->getMessage());
 }
