@@ -850,9 +850,35 @@
 
 
 <h3 id="create-file">Create File<a class="headerlink" href="#create-file" title="Permanent link">&para;</a></h3>
-<p>Create a file.</p>
+<p>Create/Put a file, if file already exists, it will be overwritten.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>File path</td>
+<td>``</td>
+</tr>
+<tr>
+<td>contents</td>
+<td>Contents of the file</td>
+<td>``</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>File operations flags</td>
+<td><code class="codehilite">0</code></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;createFile(&#39;./path/to/file.txt&#39;, &#39;the file contents&#39;);</span>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;put(&#39;./path/to/file.txt&#39;, &#39;the file contents&#39;);</span>
 </pre></div>
 
 
@@ -863,8 +889,24 @@
 
 <h3 id="get-file">Get File<a class="headerlink" href="#get-file" title="Permanent link">&para;</a></h3>
 <p>Get a file.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>File path</td>
+<td>``</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;getFile(&#39;./path/to/file.txt&#39;);</span>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;get(&#39;./path/to/file.txt&#39;);</span>
 </pre></div>
 
 
@@ -875,8 +917,24 @@
 
 <h3 id="delete-file">Delete File<a class="headerlink" href="#delete-file" title="Permanent link">&para;</a></h3>
 <p>Delete a file.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>File path</td>
+<td>``</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;deleteFile(&#39;./path/to/file.txt&#39;);</span>
+<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;files-&gt;delete(&#39;./path/to/file.txt&#39;);</span>
 </pre></div>
 
 
