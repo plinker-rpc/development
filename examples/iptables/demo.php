@@ -40,15 +40,7 @@ try {
     #
     //debug('Update Package', $iptables->update_package());
     
-    debug('addForward', $client->iptables->updateForward('id = ?', [4], [
-        'label' => 'Example',
-        'name' => '8610e47a-cf06-4806-964b-c5a3642954bb',
-        'ip' => '10.158.250.5',
-        'port' => 2252,
-        'srv_type' => 'SSH',
-        'srv_port' => 22,
-        'enabled' => 1
-    ]));
+    debug('addForward', $client->iptables->reset(true));
     
     debug('fetch', $client->iptables->fetch());
     

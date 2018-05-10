@@ -71,7 +71,10 @@ commit() {
         echo "- No changes, skipping."
     else
         #run php-cs-fixer function
-        psrfix_code
+        psrfix_code $PWD
+        
+        # remove cache file
+        rm .php_cs.cache -f
     
         echo "- Fetching current changes"
         git fetch --all
@@ -112,7 +115,10 @@ deploy_tag() {
         echo "- No changes, skipping."
     else
         #run php-cs-fixer function
-        psrfix_code
+        psrfix_code $PWD
+        
+        # remove cache file
+        rm .php_cs.cache -f
         
         echo "- Fetching tags"
         git fetch --tags
@@ -176,7 +182,7 @@ deploy_tag() {
 }
 
 function psrfix_code {
-    $projectDir/php-cs-fixer fix $projectDir/vendor/plinker --verbose --rules=@PSR2 --diff
+    $projectDir/php-cs-fixer fix $1 --verbose --rules=@PSR2 --diff
 }
 
 function deploy_docs {
