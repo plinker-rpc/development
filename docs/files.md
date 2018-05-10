@@ -156,11 +156,18 @@ Array
 
 ### Create File
 
-Create a file.
+Create/Put a file, if file already exists, it will be overwritten.
+
+
+| Parameter    | Description | Default |
+| ----------   | ------------- |  ------------- | 
+| path | File path |  |
+| contents | Contents of the file |  |
+| flags | File operations flags | `0` |
 
 **Call**
 ``` php
-$result = $client->files->createFile('./path/to/file.txt', 'the file contents');
+$result = $client->files->put('./path/to/file.txt', 'the file contents');
 ```
 
 **Response**
@@ -172,9 +179,16 @@ number of bytes written to file
 
 Get a file.
 
+!!! warning "Be aware"
+    Not suitable for transferring large files.
+
+| Parameter    | Description | Default |
+| ----------   | ------------- |  ------------- | 
+| path | File path |  |
+
 **Call**
 ``` php
-$result = $client->files->getFile('./path/to/file.txt');
+$result = $client->files->get('./path/to/file.txt');
 ```
 
 **Response**
@@ -186,9 +200,13 @@ the file contents
 
 Delete a file.
 
+| Parameter    | Description | Default |
+| ----------   | ------------- |  ------------- | 
+| path | File path |  |
+
 **Call**
 ``` php
-$result = $client->files->deleteFile('./path/to/file.txt');
+$result = $client->files->delete('./path/to/file.txt');
 ```
 
 **Response**

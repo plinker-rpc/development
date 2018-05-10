@@ -19,8 +19,17 @@ $client = plinker_client('http://10.158.250.158/examples/core/server.php', 'a se
 ]);
 
 try {
-    debug('$client->files->list()', $client->files->list('./', true, 1), 'Get files');
+
+    debug('$client->files->list()', $client->files->list('./', false, 10), 'Get/List files');
     
+    debug('$client->files->put()', $client->files->put('./foobar.php', 'this is the file', FILE_APPEND), 'Put file');
+    
+    debug('$client->files->get()', $client->files->get('./foobar.php'), 'Get file');
+    
+    debug('$client->files->delete()', $client->files->delete('./foobar.php'), 'Delete file');
+    
+} catch (\Plinker\Core\Exception\Server $e) {
+    exit('Server Exception: '.$e->getMessage());
 } catch (\Exception $e) {
     exit(get_class($e).': '.$e->getMessage());
 }

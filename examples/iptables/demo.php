@@ -9,16 +9,8 @@ function debug($title, $out) {
 
 try {
     
-    // load config file - (for testing)
-    $config = parse_ini_file('../config.ini', true);
-    
-    /**
-     * Plinker Config
-     */
-    $config = [
-        // plinker connection
-        'plinker' => $config['plinker'],
-    
+    //
+    $client = plinker_client('http://10.158.250.1:88', 'a secret password', [
         // database connection
         'database' => [
             'dsn'      => 'sqlite:./.plinker/database.db',
@@ -29,26 +21,9 @@ try {
             'freeze'   => false,
             'debug'    => false,
         ]
-    ];
-    
-    // init plinker endpoint client
-    $iptables = new \Plinker\Core\Client(
-        // where is the plinker server
-        $config['plinker']['endpoint'],
-    
-        // component namespace to interface to
-        'Iptables\Manager',
-    
-        // keys
-        $config['plinker']['public_key'],
-        $config['plinker']['private_key'],
-    
-        // construct values which you pass to the component, which the component
-        //  will use, for RedbeanPHP component you would send the database connection
-        //  dont worry its AES encrypted. see: encryption-proof.txt
-        $config
-    );
-    
+    ]);
+
+    /*
     #
     debug('Setup', $iptables->setup([
         'build_sleep' => 5,
@@ -61,12 +36,23 @@ try {
             'ip' => '172.17.0.0/16'
         ]
     ]));
-    
+    */
     #
     //debug('Update Package', $iptables->update_package());
     
-    debug('Status', $iptables->status());
+    debug('addForward', $client->iptables->updateForward('id = ?', [4], [
+        'label' => 'Example',
+        'name' => '8610e47a-cf06-4806-964b-c5a3642954bb',
+        'ip' => '10.158.250.5',
+        'port' => 2252,
+        'srv_type' => 'SSH',
+        'srv_port' => 22,
+        'enabled' => 1
+    ]));
     
+    debug('fetch', $client->iptables->fetch());
+    
+    /*
     debug('Raw', $iptables->raw());
     
     #
@@ -128,7 +114,7 @@ try {
     ];
     debug('Update Block', $iptables->updateBlock('ip=?', ['212.123.123.123'], $form['values']));
     
-
+*/
     
     #
     
