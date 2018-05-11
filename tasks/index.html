@@ -946,24 +946,28 @@ this could allow you to create a single interface to control a cluster of server
 <span class="sd"> * @param string $server - URL to server listener.</span>
 <span class="sd"> * @param string $config - server secret, and/or a additional component data</span>
 <span class="sd"> */</span>
-<span class="nv">$client</span> <span class="o">=</span> <span class="nx">plinker_client</span><span class="p">(</span><span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="c1">// database connection</span>
-    <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">&#39;dsn&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;sqlite:./.plinker/database.db&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;name&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;freeze&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-        <span class="s1">&#39;debug&#39;</span>    <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-    <span class="p">],</span>
-    <span class="c1">// displays output to task runner console</span>
-    <span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Plinker\Core\Client</span><span class="p">(</span>
+    <span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">,</span>
+        <span class="c1">// database connection</span>
+        <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;dsn&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;sqlite:./.plinker/database.db&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;freeze&#39;</span>   <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+            <span class="s1">&#39;debug&#39;</span>    <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="c1">// displays output to task runner console</span>
+        <span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
 
-    <span class="c1">// daemon sleep time</span>
-    <span class="s1">&#39;sleep_time&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;tmp_path&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;./.plinker&#39;</span>
-<span class="p">]);</span>
+        <span class="c1">// daemon sleep time</span>
+        <span class="s1">&#39;sleep_time&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;tmp_path&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;./.plinker&#39;</span>
+    <span class="p">]</span>
+<span class="p">);</span>
 
 <span class="c1">// or using global function</span>
 <span class="nv">$client</span> <span class="o">=</span> <span class="nx">plinker_client</span><span class="p">(</span><span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">,</span> <span class="p">[</span>
@@ -1016,8 +1020,8 @@ this could allow you to create a single interface to control a cluster of server
 <tr>
 <td>type</td>
 <td>string</td>
-<td>Type of task (php</td>
-<td>bash)</td>
+<td>Type of task (php|bash)</td>
+<td></td>
 </tr>
 <tr>
 <td>description</td>
@@ -1092,8 +1096,8 @@ this could allow you to create a single interface to control a cluster of server
 <tr>
 <td>type</td>
 <td>string</td>
-<td>Type of task (php</td>
-<td>bash)</td>
+<td>Type of task (php|bash)</td>
+<td></td>
 </tr>
 <tr>
 <td>description</td>
@@ -1137,7 +1141,7 @@ this could allow you to create a single interface to control a cluster of server
 
 
 <h3 id="get">Get<a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
-<p>Get task</p>
+<p>Get a task.</p>
 <table>
 <thead>
 <tr>
@@ -1220,7 +1224,7 @@ this could allow you to create a single interface to control a cluster of server
 
 
 <h3 id="get-by-id">Get By Id<a class="headerlink" href="#get-by-id" title="Permanent link">&para;</a></h3>
-<p>Get task</p>
+<p>Get a task by id.</p>
 <table>
 <thead>
 <tr>
@@ -1432,7 +1436,7 @@ this could allow you to create a single interface to control a cluster of server
 
 
 <h3 id="remove">Remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
-<p>Remove a task.</p>
+<p>Remove a task by its name.</p>
 <table>
 <thead>
 <tr>
@@ -1462,7 +1466,7 @@ this could allow you to create a single interface to control a cluster of server
 
 
 <h3 id="remove-by-id">Remove By Id<a class="headerlink" href="#remove-by-id" title="Permanent link">&para;</a></h3>
-<p>Remove a task by id.</p>
+<p>Remove a task by its id.</p>
 <table>
 <thead>
 <tr>
@@ -1831,7 +1835,7 @@ this could allow you to create a single interface to control a cluster of server
 
 
 <h3 id="clear">Clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h3>
-<p>Delete all tasks</p>
+<p>Delete all tasks.</p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;tasks-&gt;clear();</span>
 </pre></div>
@@ -1843,7 +1847,7 @@ this could allow you to create a single interface to control a cluster of server
 
 
 <h3 id="reset">Reset<a class="headerlink" href="#reset" title="Permanent link">&para;</a></h3>
-<p>Delete database. Use with caution.</p>
+<p>Delete database. <strong>Use with caution.</strong></p>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;tasks-&gt;reset();</span>
 </pre></div>
