@@ -1022,12 +1022,12 @@
         }, 
         {
             "location": "/test/", 
-            "text": "Test\n\n\nA Test component which has a few basic methods which demostrate how easy it is \nto define a class to interface to, a range of data types can be sent back from\nstrings, arrays, objects, closures or even self/this for testing/example purposes.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/test\n\n\n\n\n\nClient\n\n\nCreating a client instance is done as follows:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * Initialize plinker client.\n\n\n *\n\n\n * @param string $server - URL to server listener.\n\n\n * @param string $config - server secret, and/or a additional component data\n\n\n */\n\n\n$client\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n    \nhttp://example.com/server.php\n,\n\n    \n[\n\n        \nsecret\n \n=\n \na secret password\n\n    \n]\n\n\n);\n\n\n\n// or using global function\n\n\n$client\n \n=\n \nplinker_client\n(\nhttp://example.com/server.php\n,\n \na secret password\n);\n\n\n\n\n\n\n\n\n\nMethods\n\n\nOnce setup, you call the class though its namespace to its method.\n\n\nUser\n\n\nGet current user, helps to debug which user the crontab is owned by.\n\n\nCall\n\n\n$result = $client-\ntest-\nthis();\n\n\n\n\n\n\nResponse\n\n\n\n\n\n\n\n\nTesting\n\n\nThere are no tests setup for this component.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nSecurity\n\n\nIf you discover any security related issues, please contact me via \nhttps://cherone.co.uk\n instead of using the issue tracker.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nDevelopment Encouragement\n\n\nIf you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed throughout the documentation and on each github repository, contact me at \nhttps://cherone.co.uk\n for further details.\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nSee the \norganisations page\n for additional components.", 
+            "text": "Test\n\n\nA Test component which has a few basic methods which demostrate how easy it is \nto define a class to interface to, a range of data types can be sent back from\nstrings, arrays, objects, closures or even self/this for testing/example purposes.\n\n\nMake sure you check out \nthe components code\n,\nthere is no complicated voodoo going on, its just a simple PHP class.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/test\n\n\n\n\n\nClient\n\n\nCreating a client instance is done as follows:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * Initialize plinker client.\n\n\n *\n\n\n * @param string $server - URL to server listener.\n\n\n * @param string $config - server secret, and/or a additional component data\n\n\n */\n\n\n$client\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n    \nhttp://example.com/server.php\n,\n\n    \n[\n\n        \nsecret\n \n=\n \na secret password\n,\n\n        \narray\n \n=\n \n[\n\n            \nkey\n \n=\n \nvalue\n\n        \n]\n\n    \n]\n\n\n);\n\n\n\n// or using global function\n\n\n$client\n \n=\n \nplinker_client\n(\nhttp://example.com/server.php\n,\n \na secret password\n,\n \n[\n\n    \narray\n \n=\n \n[\n\n        \nkey\n \n=\n \nvalue\n\n    \n]\n\n\n]);\n\n\n\n\n\n\nMethods\n\n\nOnce setup, you call the class though its namespace to its method.\n\n\nThis\n\n\nBy calling this you can return the entire class to call locally.\n\n\nCall\n\n\n$client-\ntest-\nthis();\n\n\n\n\n\n\nResponse\n\n\nPlinker\\Test\\Test Object\n(\n    [config] =\n Array\n        (\n            [array] =\n Array\n                (\n                    [key] =\n value\n                )\n\n        )\n\n)\n\n\n\n\n\nIf your wondering where the \nconfig\n array is coming from.. its passed in the connection, see above client section.\n\n\nConfig\n\n\nThis shows a \"getter\" for the class which returns the config.\n\n\nCall\n\n\n$client-\ntest-\nconfig();\n\n\n\n\n\n\nResponse\n\n\nArray\n(\n    [array] =\n Array\n        (\n            [key] =\n value\n        )\n\n)\n\n\n\n\n\nAn Array\n\n\nThis shows returning a basic array. :/\n\n\nCall\n\n\n$client-\ntest-\nan_array();\n\n\n\n\n\n\nResponse\n\n\nArray\n(\n    [0] =\n Hello World\n)\n\n\n\n\n\nA Closure\n\n\nThis shows returning a closure (anonymous function) which was serialised with \n(opis/closure) SerializableClosure\n.\n\n\nCall\n\n\n$client-\ntest-\nclosure()(\nfoo\n);\n\n\n\n\n\n\nResponse\n\n\nfoo\n\n\n\n\n\nAn Object\n\n\nThis shows returning an object, in this example a DateTime object.\n\n\nCall\n\n\n$client-\ntest-\ndate();\n\n\n\n\n\n\nResponse\n\n\nDateTime Object\n(\n    [date] =\n 2018-05-11 15:53:34.655980\n    [timezone_type] =\n 3\n    [timezone] =\n UTC\n)\n\n\n\n\n\nA String\n\n\nThis shows returning an string, in this example it returns the IP address of the server.\n\n\nCall\n\n\n$client-\ntest-\nmy_ip();\n\n\n\n$client-\ntest-\nyour_ip();\n\n\n\n\n\n\nResponse\n\n\n10.158.250.158\n\n10.158.250.1\n\n\n\n\n\nTesting\n\n\nThere are no tests setup for this component.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nSecurity\n\n\nIf you discover any security related issues, please contact me via \nhttps://cherone.co.uk\n instead of using the issue tracker.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nDevelopment Encouragement\n\n\nIf you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed throughout the documentation and on each github repository, contact me at \nhttps://cherone.co.uk\n for further details.\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nSee the \norganisations page\n for additional components.", 
             "title": "Test"
         }, 
         {
             "location": "/test/#test", 
-            "text": "A Test component which has a few basic methods which demostrate how easy it is \nto define a class to interface to, a range of data types can be sent back from\nstrings, arrays, objects, closures or even self/this for testing/example purposes.", 
+            "text": "A Test component which has a few basic methods which demostrate how easy it is \nto define a class to interface to, a range of data types can be sent back from\nstrings, arrays, objects, closures or even self/this for testing/example purposes.  Make sure you check out  the components code ,\nthere is no complicated voodoo going on, its just a simple PHP class.", 
             "title": "Test"
         }, 
         {
@@ -1037,7 +1037,7 @@
         }, 
         {
             "location": "/test/#client", 
-            "text": "Creating a client instance is done as follows:  ?php  require   vendor/autoload.php ;  /**   * Initialize plinker client.   *   * @param string $server - URL to server listener.   * @param string $config - server secret, and/or a additional component data   */  $client   =   new   \\Plinker\\Core\\Client ( \n     http://example.com/server.php , \n     [ \n         secret   =   a secret password \n     ]  );  // or using global function  $client   =   plinker_client ( http://example.com/server.php ,   a secret password );", 
+            "text": "Creating a client instance is done as follows:  ?php  require   vendor/autoload.php ;  /**   * Initialize plinker client.   *   * @param string $server - URL to server listener.   * @param string $config - server secret, and/or a additional component data   */  $client   =   new   \\Plinker\\Core\\Client ( \n     http://example.com/server.php , \n     [ \n         secret   =   a secret password , \n         array   =   [ \n             key   =   value \n         ] \n     ]  );  // or using global function  $client   =   plinker_client ( http://example.com/server.php ,   a secret password ,   [ \n     array   =   [ \n         key   =   value \n     ]  ]);", 
             "title": "Client"
         }, 
         {
@@ -1046,9 +1046,34 @@
             "title": "Methods"
         }, 
         {
-            "location": "/test/#user", 
-            "text": "Get current user, helps to debug which user the crontab is owned by.  Call  $result = $client- test- this();   Response", 
-            "title": "User"
+            "location": "/test/#this", 
+            "text": "By calling this you can return the entire class to call locally.  Call  $client- test- this();   Response  Plinker\\Test\\Test Object\n(\n    [config] =  Array\n        (\n            [array] =  Array\n                (\n                    [key] =  value\n                )\n\n        )\n\n)  If your wondering where the  config  array is coming from.. its passed in the connection, see above client section.", 
+            "title": "This"
+        }, 
+        {
+            "location": "/test/#config", 
+            "text": "This shows a \"getter\" for the class which returns the config.  Call  $client- test- config();   Response  Array\n(\n    [array] =  Array\n        (\n            [key] =  value\n        )\n\n)", 
+            "title": "Config"
+        }, 
+        {
+            "location": "/test/#an-array", 
+            "text": "This shows returning a basic array. :/  Call  $client- test- an_array();   Response  Array\n(\n    [0] =  Hello World\n)", 
+            "title": "An Array"
+        }, 
+        {
+            "location": "/test/#a-closure", 
+            "text": "This shows returning a closure (anonymous function) which was serialised with  (opis/closure) SerializableClosure .  Call  $client- test- closure()( foo );   Response  foo", 
+            "title": "A Closure"
+        }, 
+        {
+            "location": "/test/#an-object", 
+            "text": "This shows returning an object, in this example a DateTime object.  Call  $client- test- date();   Response  DateTime Object\n(\n    [date] =  2018-05-11 15:53:34.655980\n    [timezone_type] =  3\n    [timezone] =  UTC\n)", 
+            "title": "An Object"
+        }, 
+        {
+            "location": "/test/#a-string", 
+            "text": "This shows returning an string, in this example it returns the IP address of the server.  Call  $client- test- my_ip();  $client- test- your_ip();   Response  10.158.250.158\n\n10.158.250.1", 
+            "title": "A String"
         }, 
         {
             "location": "/test/#testing", 

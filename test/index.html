@@ -435,8 +435,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#user" title="User" class="md-nav__link">
-    User
+  <a href="#this" title="This" class="md-nav__link">
+    This
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config" title="Config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-array" title="An Array" class="md-nav__link">
+    An Array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-closure" title="A Closure" class="md-nav__link">
+    A Closure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-object" title="An Object" class="md-nav__link">
+    An Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-string" title="A String" class="md-nav__link">
+    A String
   </a>
   
 </li>
@@ -555,8 +590,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#user" title="User" class="md-nav__link">
-    User
+  <a href="#this" title="This" class="md-nav__link">
+    This
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config" title="Config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-array" title="An Array" class="md-nav__link">
+    An Array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-closure" title="A Closure" class="md-nav__link">
+    A Closure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-object" title="An Object" class="md-nav__link">
+    An Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-string" title="A String" class="md-nav__link">
+    A String
   </a>
   
 </li>
@@ -642,6 +712,8 @@
 <p>A Test component which has a few basic methods which demostrate how easy it is 
 to define a class to interface to, a range of data types can be sent back from
 strings, arrays, objects, closures or even self/this for testing/example purposes.</p>
+<p>Make sure you check out <a href="https://github.com/plinker-rpc/test/blob/master/src/Test.php">the components code</a>,
+there is no complicated voodoo going on, its just a simple PHP class.</p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>Require this package with composer using the following command:</p>
 <div class="codehilite"><pre><span></span>$ composer require plinker/test
@@ -662,35 +734,124 @@ strings, arrays, objects, closures or even self/this for testing/example purpose
 <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Plinker\Core\Client</span><span class="p">(</span>
     <span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span>
     <span class="p">[</span>
-        <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;a secret password&#39;</span>
+        <span class="s1">&#39;secret&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;array&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span>
+        <span class="p">]</span>
     <span class="p">]</span>
 <span class="p">);</span>
 
 <span class="c1">// or using global function</span>
-<span class="nv">$client</span> <span class="o">=</span> <span class="nx">plinker_client</span><span class="p">(</span><span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">);</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">plinker_client</span><span class="p">(</span><span class="s1">&#39;http://example.com/server.php&#39;</span><span class="p">,</span> <span class="s1">&#39;a secret password&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;array&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span>
+    <span class="p">]</span>
+<span class="p">]);</span>
 </pre></div>
 
 
-<!--
-## Component Config
-
-| Parameter    | Description | Default |
-| ----------   | ------------- |  ------------- | 
-| journal | Path to journal file | `./.plinker/crontab.journal` |
-| apply | Apply crontab after each call, default is to only apply upon calling `apply()` method | `false` |
--->
-
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <p>Once setup, you call the class though its namespace to its method.</p>
-<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
-<p>Get current user, helps to debug which user the crontab is owned by.</p>
+<h3 id="this">This<a class="headerlink" href="#this" title="Permanent link">&para;</a></h3>
+<p>By calling this you can return the entire class to call locally.</p>
 <p><strong>Call</strong></p>
-<div class="codehilite"><pre><span></span><span class="x">$result = $client-&gt;test-&gt;this();</span>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;test-&gt;this();</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>
+<div class="codehilite"><pre><span></span>Plinker\Test\Test Object
+(
+    [config] =&gt; Array
+        (
+            [array] =&gt; Array
+                (
+                    [key] =&gt; value
+                )
+
+        )
+
+)
+</pre></div>
+
+
+<p>If your wondering where the <code class="codehilite">config</code> array is coming from.. its passed in the connection, see above client section.</p>
+<h3 id="config">Config<a class="headerlink" href="#config" title="Permanent link">&para;</a></h3>
+<p>This shows a "getter" for the class which returns the config.</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;test-&gt;config();</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span>Array
+(
+    [array] =&gt; Array
+        (
+            [key] =&gt; value
+        )
+
+)
+</pre></div>
+
+
+<h3 id="an-array">An Array<a class="headerlink" href="#an-array" title="Permanent link">&para;</a></h3>
+<p>This shows returning a basic array. :/</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;test-&gt;an_array();</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span>Array
+(
+    [0] =&gt; Hello World
+)
+</pre></div>
+
+
+<h3 id="a-closure">A Closure<a class="headerlink" href="#a-closure" title="Permanent link">&para;</a></h3>
+<p>This shows returning a closure (anonymous function) which was serialised with <a href="https://github.com/opis/closure">(opis/closure) SerializableClosure</a>.</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;test-&gt;closure()(&#39;foo&#39;);</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span>foo
+</pre></div>
+
+
+<h3 id="an-object">An Object<a class="headerlink" href="#an-object" title="Permanent link">&para;</a></h3>
+<p>This shows returning an object, in this example a DateTime object.</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;test-&gt;date();</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span>DateTime Object
+(
+    [date] =&gt; 2018-05-11 15:53:34.655980
+    [timezone_type] =&gt; 3
+    [timezone] =&gt; UTC
+)
+</pre></div>
+
+
+<h3 id="a-string">A String<a class="headerlink" href="#a-string" title="Permanent link">&para;</a></h3>
+<p>This shows returning an string, in this example it returns the IP address of the server.</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;test-&gt;my_ip();</span>
+
+<span class="x">$client-&gt;test-&gt;your_ip();</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span>10.158.250.158
+
+10.158.250.1
 </pre></div>
 
 
