@@ -542,186 +542,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
-    
-    <label class="md-nav__link" for="nav-15">
-      LXD
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        LXD
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/aliases/" title="Aliases" class="md-nav__link">
-      Aliases
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/certificates/" title="Certificates" class="md-nav__link">
-      Certificates
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/containers/" title="Containers" class="md-nav__link">
-      Containers
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/files/" title="Files" class="md-nav__link">
-      Files
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/images/" title="Images" class="md-nav__link">
-      Images
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/" title="Home" class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/logs/" title="Logs" class="md-nav__link">
-      Logs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/metadata/" title="Metadata" class="md-nav__link">
-      Metadata
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/networks/" title="Networks" class="md-nav__link">
-      Networks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/operations/" title="Operations" class="md-nav__link">
-      Operations
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/profiles/" title="Profiles" class="md-nav__link">
-      Profiles
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/server/" title="Server" class="md-nav__link">
-      Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../LXD/snapshots/" title="Snapshots" class="md-nav__link">
-      Snapshots
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -916,7 +736,7 @@ www-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc
 
 
 <h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
-<p>Essentially you can do any LXD operation with the single <code class="codehilite">$client-&gt;lxc-&gt;query()</code> method, or you can use the <a href="https://plinker-rpc.github.io/lxd/">helper methods</a>  which cover all the LXD endpoints.</p>
+<p>Essentially you can do any LXD operation with the single <code class="codehilite">$client-&gt;lxd-&gt;query()</code> method, or you can use the <a href="https://plinker-rpc.github.io/lxd/">helper methods</a>  which cover all the LXD endpoints.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -954,7 +774,7 @@ www-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="o">$</span><span class="nt">client-</span><span class="o">&gt;</span><span class="nt">lxc-</span><span class="o">&gt;</span><span class="nt">query</span><span class="o">(</span><span class="s1">&#39;remote:/1.0&#39;</span><span class="o">,</span> <span class="s1">&#39;GET&#39;</span><span class="o">,</span> <span class="cp">[]</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="o">$</span><span class="nt">client-</span><span class="o">&gt;</span><span class="nt">lxd-</span><span class="o">&gt;</span><span class="nt">query</span><span class="o">(</span><span class="s1">&#39;remote:/1.0&#39;</span><span class="o">,</span> <span class="s1">&#39;GET&#39;</span><span class="o">,</span> <span class="cp">[]</span><span class="o">);</span>
 </pre></div>
 
 
