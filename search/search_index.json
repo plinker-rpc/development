@@ -767,18 +767,23 @@
         }, 
         {
             "location": "/plinker-lxd/", 
-            "text": "PlinkerRPC - LXD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nControl LXD through RPC\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/lxd\n\n\n\n\n\nUsage example:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n//\n\n\n// Insert here, how to use the package.\n\n\n\n\n\n\nTesting\n\n\n$ composer \ntest\n\n\n\n\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.", 
+            "text": "PlinkerRPC - LXD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nControl LXD through RPC, heavily based upon \nhttps://github.com/lcherone/lxc-query\n node.js library.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/lxd\n\n\n\n\n\nSetup\n\n\nThe webserver user must be able to execute \nlxc\n commands, so add the user to sudoers file:\n\n\n# User privilege specification\nroot     ALL=(ALL:ALL) ALL\nwww-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc\n\n\n\n\n\nUsage example:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n//\n\n\n// Insert here, how to use the package.\n\n\n\n\n\n\nTesting\n\n\n$ composer \ntest\n\n\n\n\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.", 
             "title": "Plinker lxd"
         }, 
         {
             "location": "/plinker-lxd/#plinkerrpc-lxd", 
-            "text": "Control LXD through RPC", 
+            "text": "Control LXD through RPC, heavily based upon  https://github.com/lcherone/lxc-query  node.js library.", 
             "title": "PlinkerRPC - LXD"
         }, 
         {
             "location": "/plinker-lxd/#install", 
             "text": "Require this package with composer using the following command:  $ composer require plinker/lxd", 
             "title": "Install"
+        }, 
+        {
+            "location": "/plinker-lxd/#setup", 
+            "text": "The webserver user must be able to execute  lxc  commands, so add the user to sudoers file:  # User privilege specification\nroot     ALL=(ALL:ALL) ALL\nwww-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc", 
+            "title": "Setup"
         }, 
         {
             "location": "/plinker-lxd/#usage-example", 

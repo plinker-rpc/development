@@ -384,6 +384,13 @@
     Install
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -522,6 +529,13 @@
     Install
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -597,10 +611,18 @@
 <a href="https://scrutinizer-ci.com/g/plinker/lxd/code-structure/master/code-coverage"><img alt="Code Coverage" src="https://scrutinizer-ci.com/g/plinker/lxd/badges/coverage.png?b=master" /></a>
 <a href="https://github.com/plinker/lxd/releases"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/plinker/lxd.svg?style=flat-square" /></a>
 <a href="https://packagist.org/packages/plinker/lxd"><img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/plinker/lxd.svg?style=flat-square" /></a></p>
-<p>Control LXD through RPC</p>
+<p>Control LXD through RPC, heavily based upon <a href="https://github.com/lcherone/lxc-query">https://github.com/lcherone/lxc-query</a> node.js library.</p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>Require this package with composer using the following command:</p>
 <div class="codehilite"><pre><span></span>$ composer require plinker/lxd
+</pre></div>
+
+
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>The webserver user must be able to execute <code class="codehilite">lxc</code> commands, so add the user to sudoers file:</p>
+<div class="codehilite"><pre><span></span># User privilege specification
+root     ALL=(ALL:ALL) ALL
+www-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc
 </pre></div>
 
 
