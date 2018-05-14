@@ -23,6 +23,7 @@ components['plinker-test']='plinker/test'
 components['plinker-nginx']='plinker/nginx'
 components['plinker-iptables']='plinker/iptables'
 components['plinker-files']='plinker/files'
+components['lxd']='plinker/lxd'
 
 #
 increment_semver() {

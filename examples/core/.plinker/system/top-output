@@ -1,0 +1,38 @@
+top - 12:48:39 up 21:47,  0 users,  load average: 0.76, 0.50, 0.56
+Tasks:  31 total,   1 running,  30 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 15.9 us,  4.0 sy,  0.1 ni, 79.8 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem :  2097152 total,  1795876 free,   301248 used,       28 buff/cache
+KiB Swap: 16511996 total, 16511996 free,        0 used.  1795876 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  220000   8440   6480 S   0.0  0.4   0:01.89 systemd
+   54 root      20   0   73308  10360   9788 S   0.0  0.5   0:01.25 systemd-jo+
+  251 root      20   0   16224   2708   1844 S   0.0  0.1   0:00.06 dhclient
+  313 daemon    20   0   28256   2356   2152 S   0.0  0.1   0:00.00 atd
+  314 message+  20   0   47592   4160   3556 S   0.0  0.2   0:00.29 dbus-daemon
+  317 syslog    20   0  267800   3772   3288 S   0.0  0.2   0:00.13 rsyslogd
+  322 root      20   0  708552  17788  11564 S   0.0  0.8   0:03.35 snapd
+  323 root      20   0   57008   5260   4700 S   0.0  0.3   0:00.31 systemd-lo+
+  327 root      20   0  286048   6820   6000 S   0.0  0.3   0:01.45 accounts-d+
+  328 root      20   0   29952   3084   2792 S   0.0  0.1   0:00.20 cron
+  330 root      20   0   25284    296     64 S   0.0  0.0   0:02.09 iscsid
+  331 root      10 -10   25788   5224   3960 S   0.0  0.2   0:00.00 iscsid
+  332 root      20   0   55352   2992   2548 S   0.0  0.1   0:00.00 cron
+  339 root      20   0  288652   6544   5748 S   0.0  0.3   0:00.06 polkitd
+  341 root      20   0    4592    820    756 S   0.0  0.0   0:00.00 sh
+  342 root      20   0 1245284  52376  17888 S   0.0  2.5   0:32.29 node
+  356 root      20   0   14592   2108   1976 S   0.0  0.1   0:00.00 agetty
+  368 root      20   0   72136   5524   4804 S   0.0  0.3   0:00.00 sshd
+  380 root      20   0  491332  44728  36888 S   0.0  2.1   0:03.23 apache2
+  474 mysql     20   0  681016  74024  15528 S   0.0  3.5   1:14.74 mysqld
+ 2145 www-data  20   0  492424  20412  11612 S   0.0  1.0   0:00.31 apache2
+ 2146 www-data  20   0  492360  20316  11544 S   0.0  1.0   0:00.28 apache2
+ 2147 www-data  20   0  492516  20532  11696 S   0.0  1.0   0:00.28 apache2
+ 2148 www-data  20   0  492356  20384  11648 S   0.0  1.0   0:00.25 apache2
+ 2149 www-data  20   0  492356  20316  11572 S   0.0  1.0   0:00.27 apache2
+ 2404 www-data  20   0  492444  20416  11676 S   0.0  1.0   0:00.29 apache2
+ 5123 root      20   0 1210524  37196  16572 S   0.0  1.8   0:04.71 node
+ 5396 www-data  20   0  492424  20120  11440 S   0.0  1.0   0:00.21 apache2
+ 5955 systemd+  20   0   65584   5000   4472 S   0.0  0.2   0:00.03 systemd-re+
+ 6576 www-data  20   0    4592    744    676 S   0.0  0.0   0:00.00 sh
+ 6577 www-data  20   0   43144   3192   2764 R   0.0  0.2   0:00.00 top

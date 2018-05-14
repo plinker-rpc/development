@@ -3,30 +3,30 @@
  * Define the package settings
  */
 $package = [
-    'name' => 'plinker/package',
-    'title' => 'My Package',
-    'description' => 'This is my package, description.',
+    'name' => 'plinker/lxd',
+    'title' => 'PlinkerRPC - LXD',
+    'description' => 'Control LXD through RPC',
     'type' => 'library',
     'keywords' => [
-        'example', 'project', 'boilerplate', 'package'
+        'lxd', 'plinker', 'rpc', 'containers'
     ],
-    'homepage' => 'http://github.com/vendor/package',
+    'homepage' => 'http://github.com/plinker-rpc/lxd',
     'authors' => [
         [
-            'name' => 'Your Name',
-            'email' => 'your-email@example.com',
-            'homepage' => 'http://github.com/vendor',
+            'name' => 'Lawrence Cherone',
+            'email' => 'lawrence@cherone.co.uk',
+            'homepage' => 'http://github.com/plinker-rpc',
             'role' => 'Owner'
         ]
     ],
     'autoload' => [
         'psr-4' => [
-            'Plinker\\Package\\' => 'src',
+            'Plinker\\Lxd\\' => 'src',
         ]
     ],
     'autoload-dev' => [
         'psr-4' => [
-            'Plinker\\Package\\Tests\\' => 'tests',
+            'Plinker\\Lxd\\Tests\\' => 'tests',
         ]
     ]
 ];

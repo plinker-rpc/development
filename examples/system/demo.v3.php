@@ -12,20 +12,21 @@ require '../../vendor/autoload.php';
 
 // working
 $client = new \Plinker\Core\Client(
-    'http://10.158.250.158/examples/core/server.php',
+    'http://10.158.250.1:88',
     [
         'secret' => 'a secret password'
     ]
 );
-debug('$client', $client->info());
+
+// debug('$client', $client->info());
 debug('arch', $client->system->arch());
-debug('clear_swap', $client->system->clear_swap());
+//debug('clear_swap', $client->system->clear_swap());
 debug('cpuinfo', $client->system->cpuinfo());
 debug('disk_space', $client->system->disk_space());
 debug('disks', $client->system->disks());
 debug('distro', $client->system->distro());
-debug('drop_cache', $client->system->drop_cache());
-debug('enumerate', $client->system->enumerate());
+//debug('drop_cache', $client->system->drop_cache());
+debug('enumerate', $client->system->enumerate('disks', ['/']));
 debug('hostname', $client->system->hostname());
 debug('load', $client->system->load());
 debug('logins', $client->system->logins());
@@ -33,9 +34,9 @@ debug('machine_id', $client->system->machine_id());
 debug('memory_stats', $client->system->memory_stats());
 debug('memory_total', $client->system->memory_total());
 debug('netstat', $client->system->netstat());
-debug('ping', $client->system->ping());
+//debug('ping', $client->system->ping('google.com'));
 debug('pstree', $client->system->pstree());
-debug('reboot', $client->system->reboot());
+//debug('reboot', $client->system->reboot());
 debug('server_cpu_usage', $client->system->server_cpu_usage());
 debug('system_updates', $client->system->system_updates());
 debug('top', $client->system->top());

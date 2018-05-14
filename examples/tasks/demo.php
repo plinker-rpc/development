@@ -29,7 +29,16 @@ try {
         'tmp_path'   => './.plinker'
     ]);
     
+        
+    #
+    debug('Get Task Sources', $client->tasks->getTaskSources());
     
+    #
+    debug('Get Tasks', $client->tasks->getTasks());
+    
+    
+
+    /*
         debug('Create: Hello World Task', $client->tasks->create(
         // name
         'Hello World - x',
@@ -42,8 +51,8 @@ try {
         // default params
         []
     ));
-    
-    debug('Run Task: Queued', $client->tasks->run('Hello World - x', [], 1)); 
+    */
+    //debug('Run Task: Queued', $client->tasks->run('Hello World - x', [], 1)); 
     
     #
     /*
@@ -79,12 +88,7 @@ try {
     
     #
     //debug('Remove Task By Name', $tasks->remove('Hello World'));
-    
-    #
-    //debug('Get Task Sources', $client->tasks->getTaskSources());
-    
-    #
-    //debug('Get Tasks', $client->tasks->getTasks());
+
     
 } catch (\Exception $e) {
     exit(get_class($e).': '.$e->getMessage());

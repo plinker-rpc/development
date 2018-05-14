@@ -22,6 +22,7 @@ components['test']='plinker/test'
 components['nginx']='plinker/nginx'
 components['iptables']='plinker/iptables'
 components['files']='plinker/files'
+components['lxd']='plinker/lxd'
 
 function block {
     inotifywait -q -r -e modify,move,create,delete $VENDOR

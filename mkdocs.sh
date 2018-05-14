@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # @see: http://www.mkdocs.org
-# @dev: mkdocs serve -a 10.158.250.200:8000
+# @dev: mkdocs serve -a 0.0.0.0:8000
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root: sudo bash dev_mkdocs.sh"
@@ -23,6 +23,7 @@ components['test']='plinker/test'
 components['nginx']='plinker/nginx'
 components['iptables']='plinker/iptables'
 components['files']='plinker/files'
+components['lxd']='plinker/lxd'
 
 function move_component_docs {
     # loop over project components

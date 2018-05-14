@@ -7,6 +7,8 @@ function debug($title, $out) {
     echo '<hr>';
 }
 
+use Opis\Closure\SerializableClosure;
+
 try {
     
     //
@@ -22,7 +24,19 @@ try {
             'debug'    => false,
         ]
     ]);
+
+    debug('List', $client->lxd->containers->list('local', function ($result) {
+        return str_replace('/1.0/containers/', '', $result);    
+    }));
     
+    debug('Query', $client->lxd->local('lxc list --format="json"'));
+    
+    debug('List', $client->lxd->containers->snapshots->list('local', 'proxy'));
+    
+   // debug('List', $client->lxd->query('local:/1.0', 'GET', []));
+
+
+    /*
     #
     debug('Setup', $client->nginx->setup([
         'build_sleep' => 5,
@@ -34,7 +48,7 @@ try {
     $client->nginx->reset();
     
      debug('All Routes', $client->nginx->fetch());
-    
+    */
     
     /*
     debug('Update Route', $client->nginx->update('name = ?', ['b2f78de7-5994-4c21-9c55-76cefe327a67'], [
