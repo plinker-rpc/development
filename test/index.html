@@ -42,7 +42,7 @@
     
     
       
-        <title>Test - PlinkerRPC</title>
+        <title>PlinkerRPC - Test/Demo - PlinkerRPC</title>
       
     
     
@@ -99,7 +99,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#test" tabindex="1" class="md-skip">
+      <a href="#plinkerrpc-testdemo" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -125,7 +125,7 @@
                 PlinkerRPC
               </span>
               <span class="md-header-nav__topic">
-                Test
+                PlinkerRPC - Test/Demo
               </span>
             
           
@@ -407,11 +407,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Test
+        PlinkerRPC - Test/Demo
       </label>
     
-    <a href="./" title="Test" class="md-nav__link md-nav__link--active">
-      Test
+    <a href="./" title="PlinkerRPC - Test/Demo" class="md-nav__link md-nav__link--active">
+      PlinkerRPC - Test/Demo
     </a>
     
       
@@ -470,6 +470,13 @@
           <li class="md-nav__item">
   <a href="#a-closure" title="A Closure" class="md-nav__link">
     A Closure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-closure" title="Run Closure" class="md-nav__link">
+    Run Closure
   </a>
   
 </li>
@@ -630,6 +637,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#run-closure" title="Run Closure" class="md-nav__link">
+    Run Closure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#an-object" title="An Object" class="md-nav__link">
     An Object
   </a>
@@ -720,8 +734,8 @@
               
                 
                 
-                <h1 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h1>
-<p>A Test component which has a few basic methods which demostrate how easy it is 
+                <h1 id="plinkerrpc-testdemo">PlinkerRPC - Test/Demo<a class="headerlink" href="#plinkerrpc-testdemo" title="Permanent link">&para;</a></h1>
+<p>A test/demo component which has a few basic methods which demostrate how easy it is 
 to define a class to interface to, a range of data types can be sent back from
 strings, arrays, objects, closures or even self/this for testing/example purposes.</p>
 <p>Make sure you check out <a href="https://github.com/plinker-rpc/test/blob/master/src/Test.php">the components code</a>,
@@ -831,6 +845,21 @@ there is no complicated voodoo going on, its just a simple PHP class.</p>
 
 <p><strong>Response</strong></p>
 <div class="codehilite"><pre><span></span>foo
+</pre></div>
+
+
+<h3 id="run-closure">Run Closure<a class="headerlink" href="#run-closure" title="Permanent link">&para;</a></h3>
+<p>This shows running a closure (anonymous function) on the server from the client which was serialised with <a href="https://github.com/opis/closure">(opis/closure) SerializableClosure</a>. 
+This allows you to neatly mutate any data before its returned back from the server.</p>
+<p><strong>Call</strong></p>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;test-&gt;run_closure(function ($value = []) {</span>
+<span class="x">    return implode(&#39; &#39;, $value);</span>
+<span class="x">})</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span>Hello World
 </pre></div>
 
 
