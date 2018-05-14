@@ -766,6 +766,46 @@
             "title": "License"
         }, 
         {
+            "location": "/plinker-lxd/", 
+            "text": "PlinkerRPC - LXD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nControl LXD through RPC\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/lxd\n\n\n\n\n\nUsage example:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n//\n\n\n// Insert here, how to use the package.\n\n\n\n\n\n\nTesting\n\n\n$ composer \ntest\n\n\n\n\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.", 
+            "title": "Plinker lxd"
+        }, 
+        {
+            "location": "/plinker-lxd/#plinkerrpc-lxd", 
+            "text": "Control LXD through RPC", 
+            "title": "PlinkerRPC - LXD"
+        }, 
+        {
+            "location": "/plinker-lxd/#install", 
+            "text": "Require this package with composer using the following command:  $ composer require plinker/lxd", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/plinker-lxd/#usage-example", 
+            "text": "?php  require   vendor/autoload.php ;  //  // Insert here, how to use the package.", 
+            "title": "Usage example:"
+        }, 
+        {
+            "location": "/plinker-lxd/#testing", 
+            "text": "$ composer  test", 
+            "title": "Testing"
+        }, 
+        {
+            "location": "/plinker-lxd/#contributing", 
+            "text": "Please see  CONTRIBUTING  for details.", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/plinker-lxd/#credits", 
+            "text": "Lawrence Cherone  All Contributors", 
+            "title": "Credits"
+        }, 
+        {
+            "location": "/plinker-lxd/#license", 
+            "text": "The MIT License (MIT). Please see  License File  for more information.", 
+            "title": "License"
+        }, 
+        {
             "location": "/redbean/", 
             "text": "PlinkerRPC PHP client/server makes it really easy to link and execute PHP component classes on remote systems, while maintaining the feel of a local method call.\n\n\nRedBeanPHP component which will enable you to directly manage databases on remote sites.\n\n\nComposer\n\n\n{\n    \nrequire\n: {\n        \nplinker/redbean\n: \n=v0.1\n\n    }\n}\n\n\n\n\n\nMaking a remote call.\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\ntry\n \n{\n\n\n    \n/**\n\n\n     * Plinker Config\n\n\n     */\n\n    \n$config\n \n=\n \n[\n\n        \n// plinker connection | using tasks as to write in the correct .sqlite file\n\n        \nplinker\n \n=\n \n[\n\n            \nendpoint\n \n=\n \nhttp://127.0.0.1/examples/redbean/server.php\n,\n\n            \npublic_key\n  \n=\n \nmakeSomethingUp\n,\n\n            \nprivate_key\n \n=\n \nagainMakeSomethingUp\n\n        \n],\n\n\n        \n// database connection\n\n        \ndatabase\n \n=\n \n[\n\n            \ndsn\n      \n=\n \nsqlite:./.plinker/database.db\n,\n\n            \nhost\n     \n=\n \n,\n\n            \nname\n     \n=\n \n,\n\n            \nusername\n \n=\n \n,\n\n            \npassword\n \n=\n \n,\n\n            \nfreeze\n   \n=\n \nfalse\n,\n\n            \ndebug\n    \n=\n \nfalse\n,\n\n        \n]\n\n    \n];\n\n\n    \n// init plinker endpoint client\n\n    \n$rdb\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n        \n// where is the plinker server\n\n        \n$config\n[\nplinker\n][\nendpoint\n],\n\n\n        \n// component namespace to interface to\n\n        \nRedbean\\Redbean\n,\n\n\n        \n// keys\n\n        \n$config\n[\nplinker\n][\npublic_key\n],\n\n        \n$config\n[\nplinker\n][\nprivate_key\n],\n\n\n        \n// construct values which you pass to the component\n\n        \n$config\n[\ndatabase\n]\n\n    \n);\n\n\n    \n//..\n\n\n\n}\n \ncatch\n \n(\n\\Exception\n \n$e\n)\n \n{\n\n    \nexit\n(\nget_class\n(\n$e\n)\n.\n: \n.\n$e\n-\ngetMessage\n());\n\n\n}\n\n\n\n\n\n\nthen the server part...\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * POST Server Part\n\n\n */\n\n\nif\n \n(\n$_SERVER\n[\nREQUEST_METHOD\n]\n \n==\n \nPOST\n)\n \n{\n\n    \n$server\n \n=\n \nnew\n \nPlinker\\Core\\Server\n(\n\n        \n$_POST\n,\n\n        \nusername\n,\n\n        \npassword\n\n    \n);\n\n    \nexit\n(\n$server\n-\nexecute\n());\n\n\n}\n\n\n\n\n\n\nSee the \norganisations page\n for additional components.", 
             "title": "Redbean"
