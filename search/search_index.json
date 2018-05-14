@@ -657,7 +657,7 @@
         }, 
         {
             "location": "/lxd/", 
-            "text": "LXD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nControl LXD through RPC which uses the local instance of LXD and \nlxc query\n to manage local or remote LXD servers.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/lxd\n\n\n\n\n\nSetup\n\n\nThe webserver user must be able to execute \nlxc\n commands, so add the user to sudoers file:\n\n\n# User privilege specification\nroot     ALL=(ALL:ALL) ALL\nwww-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc\n\n\n\n\n\nClient\n\n\nCreating a client instance is done as follows:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * Initialize plinker client.\n\n\n *\n\n\n * @param string $server - URL to server listener.\n\n\n * @param string $config - server secret, and/or a additional component data\n\n\n */\n\n\n$client\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n    \nhttp://example.com/server.php\n,\n\n    \n[\n\n        \nsecret\n \n=\n \na secret password\n\n    \n]\n\n\n);\n\n\n\n// or using global function\n\n\n$client\n \n=\n \nplinker_client\n(\nhttp://example.com/server.php\n,\n \na secret password\n);\n\n\n\n\n\n\nBasic Usage\n\n\nEssentially you can do any LXD operation with the single \n$client-\nlxc-\nquery()\n method, or you can use the \nhelper methods\n  which cover all the LXD endpoints.\n\n\nParameters \n Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote and endpoint\n\n\nlocal\n\n\n\n\n\n\nrest method\n\n\nstring\n\n\ne.g GET, POST, DELETE, PUT, PATCH\n\n\nGET\n\n\n\n\n\n\npayload\n\n\nobject | json string\n\n\nRest json payload\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nPre-resolve mutation function\n\n\n\n\n\n\n\n\n\n\n$\nclient-\nlxc-\nquery\n(\nremote:/1.0\n,\n \nGET\n,\n \n[]\n);\n\n\n\n\n\n\nFull Documentation\n\n\nTo view the complete docs for this component including all methods see: \nhttps://plinker-rpc.github.io/lxd/\n\n\nMethods\n\n\nOnce setup, you call the class though its namespace to its method, see docs for further details.\n\n\nList Containers\n\n\nList containers on remote.\n\n\nParameters \n Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\n$client\n-\nlxd\n-\ncontainers\n-\nlist\n(\nlocal\n,\n \nfunction\n \n(\n$result\n)\n \n{\n\n    \nreturn\n \nstr_replace\n(\n/1.0/containers/\n,\n \n,\n \n$result\n);\n    \n\n});\n\n\n\n\n\n\nResponse\n\n\nArray\n(\n    [0] =\n my-container\n)\n\n\n\n\n\nTesting\n\n\nThere are no tests setup for this component.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nSecurity\n\n\nIf you discover any security related issues, please contact me via \nhttps://cherone.co.uk\n instead of using the issue tracker.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nDevelopment Encouragement\n\n\nIf you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed throughout the documentation and on each github repository, contact me at \nhttps://cherone.co.uk\n for further details.\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nSee the \norganisations page\n for additional components.", 
+            "text": "LXD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nControl LXD through RPC which uses the local instance of LXD and \nlxc query\n to manage local or remote LXD servers.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/lxd\n\n\n\n\n\nSetup\n\n\nThe webserver user must be able to execute \nlxc\n commands, so add the user to sudoers file:\n\n\n# User privilege specification\nroot     ALL=(ALL:ALL) ALL\nwww-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc\n\n\n\n\n\nClient\n\n\nCreating a client instance is done as follows:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n\n/**\n\n\n * Initialize plinker client.\n\n\n *\n\n\n * @param string $server - URL to server listener.\n\n\n * @param string $config - server secret, and/or a additional component data\n\n\n */\n\n\n$client\n \n=\n \nnew\n \n\\Plinker\\Core\\Client\n(\n\n    \nhttp://example.com/server.php\n,\n\n    \n[\n\n        \nsecret\n \n=\n \na secret password\n\n    \n]\n\n\n);\n\n\n\n// or using global function\n\n\n$client\n \n=\n \nplinker_client\n(\nhttp://example.com/server.php\n,\n \na secret password\n);\n\n\n\n\n\n\nBasic Usage\n\n\nEssentially you can do any LXD operation with the single \n$client-\nlxc-\nquery()\n method, or you can use the \nhelper methods\n  which cover all the LXD endpoints.\n\n\nParameters \n Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote and endpoint\n\n\nlocal\n\n\n\n\n\n\nrest method\n\n\nstring\n\n\ne.g GET, POST, DELETE, PUT, PATCH\n\n\nGET\n\n\n\n\n\n\npayload\n\n\nobject | json string\n\n\nRest json payload\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nPre-resolve mutation function\n\n\n\n\n\n\n\n\n\n\n$\nclient-\nlxc-\nquery\n(\nremote:/1.0\n,\n \nGET\n,\n \n[]\n);\n\n\n\n\n\n\nFull Documentation\n\n\nTo view the complete docs for this component including all methods see: \nhttps://plinker-rpc.github.io/lxd/\n\n\nMethods\n\n\nOnce setup, you call the class though its namespace to its method, see docs for further details.\n\n\nList Containers\n\n\nList containers on remote.\n\n\nParameters \n Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\n$client-\nlxd-\ncontainers-\nlist(\nlocal\n, function ($result) {\n\n\n    return str_replace(\n/1.0/containers/\n, \n, $result);    \n\n\n});\n\n\n\n\n\n\nResponse\n\n\nArray\n(\n    [0] =\n my-container\n)\n\n\n\n\n\nTesting\n\n\nThere are no tests setup for this component.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nSecurity\n\n\nIf you discover any security related issues, please contact me via \nhttps://cherone.co.uk\n instead of using the issue tracker.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nDevelopment Encouragement\n\n\nIf you use this project and make money from it or want to show your appreciation,\nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n, thanks.\n\n\nSponsors\n\n\nGet your company or name listed throughout the documentation and on each github repository, contact me at \nhttps://cherone.co.uk\n for further details.\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nSee the \norganisations page\n for additional components.", 
             "title": "Lxd"
         }, 
         {
@@ -697,7 +697,7 @@
         }, 
         {
             "location": "/lxd/#list-containers", 
-            "text": "List containers on remote.  Parameters   Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    mutator  function  Mutation function      $client - lxd - containers - list ( local ,   function   ( $result )   { \n     return   str_replace ( /1.0/containers/ ,   ,   $result );      });   Response  Array\n(\n    [0] =  my-container\n)", 
+            "text": "List containers on remote.  Parameters   Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    mutator  function  Mutation function      $client- lxd- containers- list( local , function ($result) {      return str_replace( /1.0/containers/ ,  , $result);      });   Response  Array\n(\n    [0] =  my-container\n)", 
             "title": "List Containers"
         }, 
         {
@@ -843,51 +843,6 @@
         {
             "location": "/nginx/#license", 
             "text": "The MIT License (MIT). Please see  License File  for more information.  See the  organisations page  for additional components.", 
-            "title": "License"
-        }, 
-        {
-            "location": "/plinker-lxd/", 
-            "text": "PlinkerRPC - LXD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nControl LXD through RPC, heavily based upon \nhttps://github.com/lcherone/lxc-query\n node.js library.\n\n\nInstall\n\n\nRequire this package with composer using the following command:\n\n\n$ composer require plinker/lxd\n\n\n\n\n\nSetup\n\n\nThe webserver user must be able to execute \nlxc\n commands, so add the user to sudoers file:\n\n\n# User privilege specification\nroot     ALL=(ALL:ALL) ALL\nwww-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc\n\n\n\n\n\nUsage example:\n\n\n?php\n\n\nrequire\n \nvendor/autoload.php\n;\n\n\n//\n\n\n// Insert here, how to use the package.\n\n\n\n\n\n\nTesting\n\n\n$ composer \ntest\n\n\n\n\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.", 
-            "title": "Plinker lxd"
-        }, 
-        {
-            "location": "/plinker-lxd/#plinkerrpc-lxd", 
-            "text": "Control LXD through RPC, heavily based upon  https://github.com/lcherone/lxc-query  node.js library.", 
-            "title": "PlinkerRPC - LXD"
-        }, 
-        {
-            "location": "/plinker-lxd/#install", 
-            "text": "Require this package with composer using the following command:  $ composer require plinker/lxd", 
-            "title": "Install"
-        }, 
-        {
-            "location": "/plinker-lxd/#setup", 
-            "text": "The webserver user must be able to execute  lxc  commands, so add the user to sudoers file:  # User privilege specification\nroot     ALL=(ALL:ALL) ALL\nwww-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc", 
-            "title": "Setup"
-        }, 
-        {
-            "location": "/plinker-lxd/#usage-example", 
-            "text": "?php  require   vendor/autoload.php ;  //  // Insert here, how to use the package.", 
-            "title": "Usage example:"
-        }, 
-        {
-            "location": "/plinker-lxd/#testing", 
-            "text": "$ composer  test", 
-            "title": "Testing"
-        }, 
-        {
-            "location": "/plinker-lxd/#contributing", 
-            "text": "Please see  CONTRIBUTING  for details.", 
-            "title": "Contributing"
-        }, 
-        {
-            "location": "/plinker-lxd/#credits", 
-            "text": "Lawrence Cherone  All Contributors", 
-            "title": "Credits"
-        }, 
-        {
-            "location": "/plinker-lxd/#license", 
-            "text": "The MIT License (MIT). Please see  License File  for more information.", 
             "title": "License"
         }, 
         {

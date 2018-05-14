@@ -500,18 +500,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../plinker-lxd/" title="Plinker lxd" class="md-nav__link">
-      Plinker lxd
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
     <a href="../redbean/" title="Redbean" class="md-nav__link">
       Redbean
     </a>
@@ -821,9 +809,9 @@ www-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">containers</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$result</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">str_replace</span><span class="p">(</span><span class="s1">&#39;/1.0/containers/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">$result</span><span class="p">);</span>    
-<span class="p">});</span>
+<div class="codehilite"><pre><span></span><span class="x">$client-&gt;lxd-&gt;containers-&gt;list(&#39;local&#39;, function ($result) {</span>
+<span class="x">    return str_replace(&#39;/1.0/containers/&#39;, &#39;&#39;, $result);    </span>
+<span class="x">});</span>
 </pre></div>
 
 
