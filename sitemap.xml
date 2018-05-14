@@ -67,6 +67,14 @@
 
     
     <url>
+     <loc>https://github.com/plinker-rpc/lxd/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>https://github.com/plinker-rpc/nginx/</loc>
      <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
