@@ -1450,13 +1450,39 @@ Filesystem     Type  Size  Used Avail Use% Mounted on
 
 <h3 id="load">Load<a class="headerlink" href="#load" title="Permanent link">&para;</a></h3>
 <p>Get the systems load averages.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parse</td>
+<td>bool</td>
+<td>Parse output into an array</td>
+<td><code class="codehilite">true</code></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Call</strong></p>
 <div class="codehilite"><pre><span></span><span class="x">$client-&gt;system-&gt;load();</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>0.41 0.50 0.69 1/1474 6223
+<div class="codehilite"><pre><span></span>Array
+(
+    [1m] =&gt; 1.71
+    [5m] =&gt; 1.21
+    [15m] =&gt; 1.14
+    [curr_proc] =&gt; 3
+    [totl_proc] =&gt; 1437
+    [last_pid] =&gt; 3272
+)
 </pre></div>
 
 
