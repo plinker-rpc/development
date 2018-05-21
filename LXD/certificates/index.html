@@ -774,7 +774,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">);</span>
 </pre></div>
 
 
@@ -818,7 +818,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s2">&quot;type&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;client&quot;</span><span class="p">,</span>
     <span class="s2">&quot;certificate&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;PEM certificate&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
@@ -867,7 +867,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">);</span>
 </pre></div>
 
 
@@ -920,7 +920,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">,</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">certificates</span><span class="o">-&gt;</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s2">&quot;type&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;client&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;bar&quot;</span>
 <span class="p">]);</span>

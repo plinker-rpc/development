@@ -788,7 +788,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">);</span>
 </pre></div>
 
 
@@ -832,7 +832,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;alias-name&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;alias-name&#39;</span><span class="p">);</span>
 </pre></div>
 
 
@@ -878,7 +878,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s2">&quot;description&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;The alias description&quot;</span><span class="p">,</span>
     <span class="s2">&quot;target&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;&lt;image fingerprint&gt;&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;alias-name&quot;</span>
@@ -932,7 +932,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;alias-name&#39;</span><span class="p">,</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">images</span><span class="o">-&gt;</span><span class="nx">aliases</span><span class="o">-&gt;</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;alias-name&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="s2">&quot;description&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;New description&quot;</span><span class="p">,</span>
     <span class="s2">&quot;target&quot;</span> <span class="p">=&gt;</span> <span class="s2">&quot;&lt;image fingerprint&gt;&quot;</span>
 <span class="p">]);</span>

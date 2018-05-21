@@ -885,10 +885,15 @@
 
 
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>The webserver user must be able to execute <code class="codehilite">lxc</code> commands, so add the user to sudoers file:</p>
+<p>The webserver user must be able to execute <code class="codehilite">lxc</code> commands, so add the user to sudoers file under <code class="codehilite">User privilege specification</code>:</p>
 <div class="codehilite"><pre><span></span># User privilege specification
 root     ALL=(ALL:ALL) ALL
 www-data ALL=(ALL:ALL) NOPASSWD: /usr/bin/lxc
+</pre></div>
+
+
+<p>Also add www-data to lxd group:#</p>
+<div class="codehilite"><pre><span></span>sudo usermod --append --groups lxd www-data
 </pre></div>
 
 

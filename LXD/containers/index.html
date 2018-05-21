@@ -901,7 +901,7 @@
 </tbody>
 </table>
 <div class="codehilite"><pre><span></span><span class="c1">// apply no mutation to the response</span>
-<span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">containers</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">);</span>
+<span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">containers</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">);</span>
 
 <span class="c1">// strip endpoint from result</span>
 <span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">containers</span><span class="o">-&gt;</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$result</span><span class="p">)</span> <span class="p">{</span>
@@ -954,7 +954,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxc</span><span class="o">-&gt;</span><span class="nx">containers</span><span class="o">-&gt;</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">$client</span><span class="o">-&gt;</span><span class="nx">lxd</span><span class="o">-&gt;</span><span class="nx">containers</span><span class="o">-&gt;</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">);</span>
 </pre></div>
 
 
