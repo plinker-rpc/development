@@ -12,12 +12,17 @@ require '../../vendor/autoload.php';
 
 // working
 $client = new \Plinker\Core\Client(
-    'http://10.158.250.1:88',
+    'http://10.158.250.158/examples/core/server.php',
     [
         'secret' => 'a secret password'
     ]
 );
 
+debug('load', $client->system->load());
+
+//debug('cpuinfo', $client->system->cpuinfo());
+
+/*
 // debug('$client', $client->info());
 debug('arch', $client->system->arch());
 //debug('clear_swap', $client->system->clear_swap());
@@ -43,3 +48,4 @@ debug('top', $client->system->top());
 debug('total_disk_space', $client->system->total_disk_space());
 debug('uname', $client->system->uname());
 debug('uptime', $client->system->uptime());
+*/
