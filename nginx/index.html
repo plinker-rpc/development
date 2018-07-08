@@ -1091,6 +1091,7 @@ nginx installed then dont use this component as it will most likely break your s
         [&#39;ip&#39; =&gt; &#39;10.158.250.5&#39;, &#39;port&#39; =&gt; &#39;80&#39;]
     ],
     &#39;letsencrypt&#39; =&gt; 1,
+    &#39;forcessl&#39; =&gt; 1,
     &#39;enabled&#39; =&gt; 1
 ]);
 </pre></div>
@@ -1106,6 +1107,7 @@ nginx installed then dont use this component as it will most likely break your s
             [label] =&gt; My website nginx route
             [name] =&gt; c094c6c1-0fa1-40f1-af66-60e173e8dbac
             [ssl_type] =&gt; letsencrypt
+            [forcessl] =&gt; 1
             [added] =&gt; 2018-05-13 17:25:51
             [updated] =&gt; 2018-05-13 17:25:51
             [has_change] =&gt; 1
@@ -1194,6 +1196,7 @@ nginx installed then dont use this component as it will most likely break your s
         [&#39;ip&#39; =&gt; &#39;10.158.250.5&#39;, &#39;port&#39; =&gt; &#39;80&#39;]
     ],
     &#39;letsencrypt&#39; =&gt; 0,
+    &#39;forcessl&#39; =&gt; 0,
     &#39;enabled&#39; =&gt; 1
 ]);
 </pre></div>
@@ -1209,6 +1212,7 @@ nginx installed then dont use this component as it will most likely break your s
             [label] =&gt; Example
             [name] =&gt; b2f78de7-5994-4c21-9c55-76cefe327a67
             [ssl_type] =&gt; 
+            [forcessl] =&gt; 0
             [added] =&gt; 2018-05-12 20:17:09
             [updated] =&gt; 2018-05-13 17:28:50
             [has_change] =&gt; 1
